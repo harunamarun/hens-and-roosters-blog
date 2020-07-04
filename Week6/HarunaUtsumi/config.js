@@ -6,16 +6,16 @@ module.exports = {
       port: process.env.DB_PORT || 5432,
       database: process.env.DB_NAME || "hens-and-roosters",
       user: process.env.DB_USER || "haruna",
-      password: process.env.DB_PASSWORD || "postgres"
+      password: process.env.DB_PASSWORD || "postgres",
     },
   },
   // port for server to run on
   express: {
-    port: process.env.PORT || 3000
+    port: process.env.PORT || 3000,
   },
 
   // timestamp format for our logs
   logger: {
-    format: "dddd MMMM Do YYYY, h:mm:ss a"
-  }
+    format: "dddd MMMM Do YYYY, h:mm:ss a",
+  },
 };

@@ -1,5 +1,5 @@
-module.exports = function(knex) {
+module.exports = function (knex) {
   return {
-    blogs: require("./blogs")(knex)
+    blogs: require("./blogs")(knex),
   };
 };

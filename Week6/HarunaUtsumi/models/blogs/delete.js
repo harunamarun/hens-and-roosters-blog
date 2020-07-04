@@ -1,9 +1,7 @@
 module.exports = (knex) => {
-  return params => {
+  return (params) => {
     const id = params.id;
 
-    return knex("blogs")
-      .where({ id })
-      .del();
+    return knex("blogs").where({ id }).del();
   };
 };

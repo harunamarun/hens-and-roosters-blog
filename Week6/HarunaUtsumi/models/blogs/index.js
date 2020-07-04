@@ -1,6 +1,6 @@
 const moment = require("moment");
 
-const Blog = function(dbBlog) {
+const Blog = function (dbBlog) {
   this.id = dbBlog.id;
   this.name = dbBlog.name;
   this.content = dbBlog.content;
@@ -8,7 +8,7 @@ const Blog = function(dbBlog) {
   this.updatedAt = new Date(dbBlog.updated_at);
 };
 
-Blog.prototype.serialize = function() {
+Blog.prototype.serialize = function () {
   return {
     id: this.id,
     name: this.name,
@@ -18,12 +18,12 @@ Blog.prototype.serialize = function() {
   };
 };
 
-module.exports = knex => {
+module.exports = (knex) => {
   return {
-    create: require("./create")(knex),
+    create: require("./create")(knex, Blog),
     list: require("./list")(knex, Blog),
     get: require("./get")(knex, Blog),
     update: require("./update")(knex, Blog),
-    delete: require("./delete")(knex)
+    delete: require("./delete")(knex),
   };
 };
