@@ -4,7 +4,7 @@ const router = express.Router();
 
 const blogRouter = require("./blog");
 
-module.exports = () => {
-  router.use("/blogs", blogRouter());
+module.exports = models => {
+  router.use("/blogs", blogRouter(models));
   return router;
 };
