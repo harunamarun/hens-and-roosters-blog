@@ -1,0 +1,15 @@
+{
+  "dependencies": {
+    "express": "^4.17.1",
+    "knex": "^0.21.1",
+    "morgan": "^1.10.0",
+    "pg": "^8.2.1"
+  },
+  "name": "haruna-utsumi",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "license": "MIT"
+}
