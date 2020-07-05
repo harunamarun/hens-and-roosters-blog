@@ -1,7 +1,11 @@
-/node_modules
+*/node_modules
 /tmp
 
 .DS_Store
 
 yarn-debug.log*
 yarn-error.log*
+
+*/dist
+*/config.ts
+*/.firebase

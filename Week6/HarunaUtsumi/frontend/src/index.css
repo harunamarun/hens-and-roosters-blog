@@ -1,0 +1,168 @@
+:root {
+    --main-font-size:16px;
+    --main-blue-color:#2AA1F2;
+    --hover-blue-color:#1a91da;
+    --main-gray-color:#E6ECF0;
+    --main-black-color:#14171A
+}
+body {
+    font-family: "Helvetica Neue" , Helvetica , Arial , Verdana , Roboto , "游ゴシック" , "Yu Gothic" , "游ゴシック体" , "YuGothic" , "ヒラギノ角ゴ Pro W3" , "Hiragino Kaku Gothic Pro" , "Meiryo UI" , "メイリオ" , Meiryo , "ＭＳ Ｐゴシック" , "MS PGothic" , sans-serif;
+    color: var(--main-black-color);
+    margin: 0;
+}
+
+h1 {
+    margin-left: 10px;
+}
+/* Home */
+
+.pane_container {
+    display: flex;
+    overflow-y: scroll;
+
+}
+.left_pane {
+    min-width: 50px;
+    width:7%;
+    text-align: center;
+}
+.center_pane {
+    max-width: 900px;
+    width: 86%;
+    border-left: 1px solid var(--main-gray-color);
+    border-right: 1px solid var(--main-gray-color);
+    height: 100vh;
+    overflow-y: scroll;
+}
+
+/* common */
+.left_side {
+    margin-right: 9px;
+    width: 43px;
+    flex-basis: auto;
+}
+.profile_img {
+    border-radius: 100%;
+    width: 43px;
+}
+
+.right_side {
+    position: relative;
+    margin-top: 0;
+    width:calc(100% - 52px);
+    overflow: hidden;
+}
+
+.username {
+    display: inline;
+    font-weight: bolder;
+    margin-right: 5px;
+    font-size: var(--main-font-size);
+
+}
+
+/* Form */
+.form_area {
+    color: var(--main-black-color);
+    display: flex;
+    padding: 1%;
+    border-top: 1px solid var(--main-gray-color);
+    border-bottom: 10px solid var(--main-gray-color);
+
+}
+
+.text_area {
+    resize: none;
+    border: none;
+    outline: none;
+    width: 98%;
+    font-size: 20px;
+}
+
+.btn_post {
+    display: block;
+    border: none;
+    outline: none;
+    padding: 8px 20px;
+    border-radius: 90px;
+    color: #FFF;
+    transition: .4s;
+    background-color: var(--main-blue-color);
+    height: 34px;
+    font-weight: bold;
+    float: right;
+}
+.btn_post:hover {
+    background-color: #1a91da;
+}
+
+/* MyList */
+.card {
+    color: var(--main-black-color);
+    display: flex;
+    padding: 1%;
+    border-bottom: 1px solid var(--main-gray-color);
+}
+.list_time{
+    display: inline;
+    margin-left:5px;
+}
+.list_content {
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    margin: 3px 0;
+    font-size: var(--main-font-size);
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    white-space: pre-wrap;
+}
+
+
+
+/* ItemDetail */
+.detail_area {
+    color: var(--main-black-color);
+    display: flex;
+    padding: 1%;
+    border-top: 1px solid var(--main-gray-color);
+    border-bottom: 1px solid var(--main-gray-color);
+}
+.detail_content {
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    margin: 3px 0;
+    font-size: var(--main-font-size);
+    white-space: pre-wrap;
+
+}
+
+.detail_time {
+    color: #657786;
+    font-size: 14px;
+    margin: 3px 0;
+}
+
+/* Bottom Bar */
+.bottombar {
+    display: flex;
+}
+.btn_edit {
+    display: block;
+    border: none;
+    outline: none;
+    background: none;
+    cursor:pointer;
+}
+.btn_delete {
+    display: block;
+    border: none;
+    outline: none;
+    background: none;
+    cursor:pointer;
+}
+
+/* LeftPane */
+.user_info {
+    margin-top: 30px;
+}

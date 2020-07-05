@@ -10,4 +10,4 @@ COPY . .
 
 EXPOSE 3000
 
-CMD sh -c "sleep 20 && yarn migrate && yarn start"
+CMD sh -c "sleep 10 && yarn migrate && yarn start"
