@@ -13,8 +13,8 @@ Blog.prototype.serialize = function () {
     id: this.id,
     name: this.name,
     content: this.content,
-    createdAt: moment(this.createdAt).format("YYYY-MM-DD hh:mm:ss"),
-    updatedAt: moment(this.updatedAt).format("YYYY-MM-DD hh:mm:ss"),
+    createdAt: moment(this.createdAt).format("YYYY-MM-DD HH:mm:ss"),
+    updatedAt: moment(this.updatedAt).format("YYYY-MM-DD HH:mm:ss"),
   };
 };
 

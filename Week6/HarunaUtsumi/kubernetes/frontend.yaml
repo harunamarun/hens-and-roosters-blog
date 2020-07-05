@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+  name: frontend
+
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: frontend
+  template:
+    metadata:
+      labels:
+        app: frontend
+    spec:
+      containers:
+      - image: gcr.io/hens-and-roosters/frontend
+        name: frontend
+        env:
+          - name: BACKEND_URL
+            value: "https://hens-and-roosters.tk"
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: frontend-service
+spec:
+  type: NodePort
+  ports:
+  - name: "http-port"
+    protocol: TCP
+    port: 8080
+    targetPort: 8080
+  selector:
+    app: frontend

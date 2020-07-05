@@ -1,0 +1,19 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: hens-and-roosters-ingress
+  annotations:
+    kubernetes.io/ingress.global-static-ip-name: hens-and-roosters-ip
+    networking.gke.io/managed-certificates: hens-and-roosters-certificate
+spec:
+  rules:
+  - http:
+      paths:
+      - path: /*
+        backend:
+          serviceName: frontend-service
+          servicePort: 8080
+      - path: /api/*
+        backend:
+          serviceName: backend-service
+          servicePort: 3000

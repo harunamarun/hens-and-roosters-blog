@@ -1,6 +1,8 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
+const webpack = require("webpack");
+
 module.exports = {
   mode: "development",
   entry: "./src/index.tsx",
@@ -50,6 +52,7 @@ module.exports = {
       template: `${__dirname}/src/index.html`,
     }),
     new CleanWebpackPlugin(),
+    new webpack.EnvironmentPlugin(["BACKEND_URL"]),
   ],
   devServer: {
     contentBase: `${__dirname}/dist`,
@@ -59,5 +62,6 @@ module.exports = {
     watchContentBase: true,
     hot: true,
     historyApiFallback: true,
+    disableHostCheck: true,
   },
 };

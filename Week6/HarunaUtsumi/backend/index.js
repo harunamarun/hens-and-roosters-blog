@@ -27,6 +27,7 @@ app.use((req, res, next) => {
   next();
 });
 
+app.get("/", (req, res) => res.status(200).send("Hello World"));
 app.use("/api", apiRouter);
 
 app.use((err, req, res) => {

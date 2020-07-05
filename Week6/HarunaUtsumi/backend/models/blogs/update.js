@@ -4,7 +4,7 @@ module.exports = (knex, Blog) => {
   return (params) => {
     const id = params.id;
     const content = params.content;
-    const updatedAt = moment().format("YYYY-MM-DD hh:mm:ss");
+    const updatedAt = moment().format("YYYY-MM-DD HH:mm:ss");
 
     return knex("blogs")
       .where({ id })

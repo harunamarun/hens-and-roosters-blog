@@ -29,3 +29,5 @@ services:
       - "8080:8080"
     tty: true
     stdin_open: true
+    environment: 
+      BACKEND_URL: http://localhost:3000
