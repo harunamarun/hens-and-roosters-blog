@@ -8,9 +8,8 @@ module.exports = (models) => {
         content: req.body.content,
         name: req.body.name,
       })
-      .then(() => {
-        res.status(201).json("created");
-      })
+      .then((blog) => blog.serialize())
+      .then((blog) => res.status(201).json(blog))
       .catch((err) => res.status(400).send(err.message));
   };
   const listBlogs = (req, res) =>
