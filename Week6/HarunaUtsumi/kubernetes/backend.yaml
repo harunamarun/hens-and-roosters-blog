@@ -1,0 +1,50 @@
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+  name: backend
+
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: backend
+  template:
+    metadata:
+      labels:
+        app: backend
+    spec:
+      containers:
+      - image: gcr.io/hens-and-roosters/backend
+        name: backend
+        env:
+          - name: DB_HOST
+            valueFrom:
+              secretKeyRef:
+                name: db-ip-secret
+                key: db_host
+          - name: DB_USER
+            valueFrom:
+              secretKeyRef:
+                name: db-secret
+                key: db_user
+          - name: DB_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: db-secret
+                key: db_password
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: backend-service
+spec:
+  type: LoadBalancer
+  ports:
+  - name: "http-port"
+    protocol: TCP
+    port: 3000
+    targetPort: 3000
+  selector:
+    app: backend
