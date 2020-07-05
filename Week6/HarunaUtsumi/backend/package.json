@@ -12,7 +12,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "test": "node tests/initialize.js && mocha tests/integration.js && mocha tests/e2e_api.js && yarn lint",
+    "test": "node tests/initialize.js && mocha tests/unit.js && mocha tests/integration.js && mocha tests/e2e_api.js && yarn lint",
     "lint": "eslint --fix .",
     "migrate": "knex migrate:latest --knexfile models/knexfile.js",
     "rollback": "knex migrate:rollback --knexfile models/knexfile.js "
@@ -23,6 +23,7 @@
     "eslint-config-prettier": "^6.11.0",
     "eslint-plugin-prettier": "^3.1.4",
     "mocha": "^8.0.1",
+    "mock-knex": "^0.4.9",
     "node-fetch": "^2.6.0",
     "prettier": "^2.0.5"
   }
