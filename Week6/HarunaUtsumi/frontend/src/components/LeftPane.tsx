@@ -22,8 +22,13 @@ export default function LeftPane(): JSX.Element {
         <UserIcon username={username} />
         <div>{username}</div>
       </div>
-      <LoginButton />
-      <LogoutButton />
+      {user ? (
+        <>
+          <LogoutButton /> <div>{user.nickname}</div>
+        </>
+      ) : (
+        <LoginButton />
+      )}
     </div>
   );
 }
