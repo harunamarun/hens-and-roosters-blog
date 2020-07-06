@@ -4,7 +4,7 @@ const config = require("../config");
 const knex = require("knex")(config.db);
 const models = require("../models")(knex);
 
-describe("blogs", () => {
+describe("blogs: integration-test", () => {
   after(() => knex.destroy());
   describe("##setup##", () => {
     it("able to connect to database", () =>
@@ -21,22 +21,20 @@ describe("blogs", () => {
 
   describe("##create##", () => {
     let params = { name: " " };
-    context("when good params are given", () => {
-      before(() => {
-        (params.name = "mer-san"), (params.content = "go bold");
-      });
-      afterEach(() => knex("blogs").del());
-      it("creates a blog", () =>
-        models.blogs.create(params).then((blog) => {
-          expect(blog).to.include({ name: params.name });
-          expect(blog).to.include({ content: params.content });
-          expect(blog.id).to.be.a("number");
-          expect(blog.createdAt).to.be.a("Date");
-          expect(blog.updatedAt).to.be.a("Date");
-          // When we create new blog, createAt must be the same to updatedAt
-          expect(blog.createdAt.getTime()).to.equal(blog.updatedAt.getTime());
-        }));
+    before(() => {
+      (params.name = "mer-san"), (params.content = "go bold");
     });
+    afterEach(() => knex("blogs").del());
+    it("creates a blog", () =>
+      models.blogs.create(params).then((blog) => {
+        expect(blog).to.include({ name: params.name });
+        expect(blog).to.include({ content: params.content });
+        expect(blog.id).to.be.a("number");
+        expect(blog.createdAt).to.be.a("Date");
+        expect(blog.updatedAt).to.be.a("Date");
+        // When we create new blog, createAt must be the same to updatedAt
+        expect(blog.createdAt.getTime()).to.equal(blog.updatedAt.getTime());
+      }));
   });
 
   describe("##list##", () => {

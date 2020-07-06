@@ -38,6 +38,9 @@ describe("blogs: unit-test", () => {
       models.blogs.create(params).then((blog) => {
         expect(blog.name).to.equal(params.name);
         expect(blog.content).to.equal(params.content);
+        expect(blog.createdAt).to.be.a("Date");
+        expect(blog.updatedAt).to.be.a("Date");
+        expect(blog.id).to.be.a("number");
       }));
   });
 
