@@ -9,16 +9,27 @@ export const getBlogs = (): Promise<blogDict[]> =>
 export const getBlogById = (id: number): Promise<blogDict> =>
   fetch(`${baseUrl}/api/blogs/${id}`).then((request) => request.json());
 
-export const createBlog = (content: string): void => {
+export const createBlog = (content: string, imageFile: any): void => {
+  const formData = new FormData();
+  formData.append("name", getUserName());
+  formData.append("content", content);
+  if (imageFile) {
+    formData.append("imageFile", imageFile);
+  }
+
   fetch(`${baseUrl}/api/blogs/`, {
     method: "POST",
-    headers: {
-      "Content-Type": "application/json; charset=utf-8",
-    },
-    body: JSON.stringify({ name: getUserName(), content }),
+    body: formData,
   })
-    .then((response) => response.json())
-    .then((data) => JSON.stringify(data))
+    .then((response) => {
+      console.log(response);
+      return response.json();
+    })
+    .then((data) => {
+      console.log(data);
+      console.log(JSON.stringify(data));
+      return JSON.stringify(data);
+    })
     .catch((error) => console.error(error));
 };
 

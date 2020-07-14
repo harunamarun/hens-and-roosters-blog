@@ -4,6 +4,7 @@ const Blog = function (dbBlog) {
   this.id = dbBlog.id;
   this.name = dbBlog.name;
   this.content = dbBlog.content;
+  this.imageURL = dbBlog.imageURL;
   this.createdAt = new Date(dbBlog.created_at);
   this.updatedAt = new Date(dbBlog.updated_at);
 };
@@ -13,6 +14,7 @@ Blog.prototype.serialize = function () {
     id: this.id,
     name: this.name,
     content: this.content,
+    imageURL: this.imageURL,
     createdAt: moment(this.createdAt).format("YYYY-MM-DD HH:mm:ss"),
     updatedAt: moment(this.updatedAt).format("YYYY-MM-DD HH:mm:ss"),
   };

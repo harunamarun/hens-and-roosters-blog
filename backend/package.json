@@ -1,11 +1,14 @@
 {
   "dependencies": {
+    "@google-cloud/storage": "^5.1.2",
     "chai": "^4.2.0",
     "express": "^4.17.1",
     "knex": "^0.21.1",
     "moment": "^2.27.0",
     "morgan": "^1.10.0",
-    "pg": "^8.2.1"
+    "multer": "^1.4.2",
+    "pg": "^8.2.1",
+    "uuid": "^8.2.0"
   },
   "name": "haruna-utsumi",
   "version": "1.0.0",

@@ -3,12 +3,14 @@
     --main-blue-color:#2AA1F2;
     --hover-blue-color:#1a91da;
     --main-gray-color:#E6ECF0;
-    --main-black-color:#14171A
+    --main-black-color:#14171A;
+    --main-rightbackground-color: #FFFFFF;
 }
 body {
     font-family: "Helvetica Neue" , Helvetica , Arial , Verdana , Roboto , "游ゴシック" , "Yu Gothic" , "游ゴシック体" , "YuGothic" , "ヒラギノ角ゴ Pro W3" , "Hiragino Kaku Gothic Pro" , "Meiryo UI" , "メイリオ" , Meiryo , "ＭＳ Ｐゴシック" , "MS PGothic" , sans-serif;
     color: var(--main-black-color);
     margin: 0;
+    background: var(--main-rightbackground-color);
 }
 
 h1 {
@@ -77,6 +79,25 @@ h1 {
     outline: none;
     width: 98%;
     font-size: 20px;
+    background: var(--main-rightbackground-color);
+
+}
+.form_img_preview{
+    display: flex;
+    margin: 5px;
+}
+.form_img {
+    position: relative;
+    border-radius: 20px;
+    width: 50%;
+}
+.form_img_cancel {
+    position:absolute;
+    z-index: 2;
+}
+
+input {
+    display: none;
 }
 
 .btn_post {
@@ -118,6 +139,13 @@ h1 {
     white-space: pre-wrap;
 }
 
+.list_image{
+    display: block;
+    text-align: center;
+    padding:5px;
+    position: relative;
+    background: var(--main-rightbackground-color);
+}
 
 
 /* ItemDetail */

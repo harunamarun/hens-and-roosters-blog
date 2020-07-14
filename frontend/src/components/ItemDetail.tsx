@@ -15,6 +15,7 @@ export default function ItemDetail(props: Props): JSX.Element {
     name: undefined,
     id: undefined,
     content: undefined,
+    imageURL: undefined,
     favers: undefined,
     updatedAt: undefined,
     createdAt: undefined,
@@ -59,6 +60,10 @@ export default function ItemDetail(props: Props): JSX.Element {
   ) : (
     <>
       <div className={styles.detail_content}>{blog.content}</div>
+      <img
+        src={blog.imageURL}
+        style={{ height: "200px", borderRadius: "20px" }}
+      />
       <div className={styles.detail_time}>
         posted at:{" "}
         {moment

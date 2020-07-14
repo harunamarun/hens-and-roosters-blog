@@ -31,6 +31,17 @@ export default function MyList(): JSX.Element {
                   {moment.utc(item.createdAt, "YYYY-MM-DD hh:mm:ss").fromNow()}
                 </p>
                 <p className={styles.list_content}>{item.content}</p>
+                {item.imageURL && (
+                  <div className={styles.list_image}>
+                    <img
+                      src={item.imageURL}
+                      style={{
+                        height: "200px",
+                        borderRadius: "20px",
+                      }}
+                    />
+                  </div>
+                )}
               </div>
             </div>
           </Link>

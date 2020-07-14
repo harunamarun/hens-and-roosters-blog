@@ -6,10 +6,17 @@ module.exports = (knex, Blog) => {
     const content = params.content;
     const updatedAt = moment().format("YYYY-MM-DD HH:mm:ss");
     const createdAt = moment().format("YYYY-MM-DD HH:mm:ss");
+    const imageURL = params.imageURL;
 
     return knex("blogs")
       .insert(
-        { name, content, updated_at: updatedAt, created_at: createdAt },
+        {
+          name,
+          content,
+          imageURL,
+          updated_at: updatedAt,
+          created_at: createdAt,
+        },
         "id"
       )
       .then((id) => {
