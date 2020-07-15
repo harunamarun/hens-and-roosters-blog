@@ -48,7 +48,7 @@ export default function Form(): JSX.Element {
           name="comment"
           id="comment"
           value={content}
-          placeholder="What's happning?"
+          placeholder="What's happening?"
           onChange={(e) => setContent(e.target.value)}
         />
         {previewImage && (
