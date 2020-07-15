@@ -3,6 +3,7 @@ import { getBlogById, updateBlog } from "../services/api";
 import ItemBottomBar from "./ItemBottomBar";
 import styles from "../index.css";
 import LeftPane from "./LeftPane";
+import RightPane from "./RightPane";
 import moment from "moment";
 import UserIcon from "./UserIcon";
 import { getUserName } from "../utils";
@@ -92,7 +93,9 @@ export default function ItemDetail(props: Props): JSX.Element {
       <div className={styles.pane_container}>
         <LeftPane />
         <div className={styles.center_pane}>
-          <h1>cock-a-doodle-doo</h1>
+          <div className={styles.center_pane_head}>
+            <h1>cock-a-doodle-doo</h1>
+          </div>
           <div className={styles.detail_area}>
             <div className={styles.left_side}>
               <UserIcon username={blog.name} />
@@ -103,6 +106,7 @@ export default function ItemDetail(props: Props): JSX.Element {
             </div>
           </div>
         </div>
+        <RightPane />
       </div>
     </React.Fragment>
   );

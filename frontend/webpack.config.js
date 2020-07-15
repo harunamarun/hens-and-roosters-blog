@@ -52,7 +52,7 @@ module.exports = {
       template: `${__dirname}/src/index.html`,
     }),
     new CleanWebpackPlugin(),
-    new webpack.EnvironmentPlugin(["BACKEND_URL"]),
+    new webpack.EnvironmentPlugin(["BACKEND_URL", "NEWS_API_KEY"]),
   ],
   devServer: {
     contentBase: `${__dirname}/dist`,

@@ -3,38 +3,82 @@
     --main-blue-color:#2AA1F2;
     --hover-blue-color:#1a91da;
     --main-gray-color:#E6ECF0;
+    --main-background-color:#F5F8FA;
     --main-black-color:#14171A;
     --main-rightbackground-color: #FFFFFF;
 }
+
 body {
     font-family: "Helvetica Neue" , Helvetica , Arial , Verdana , Roboto , "游ゴシック" , "Yu Gothic" , "游ゴシック体" , "YuGothic" , "ヒラギノ角ゴ Pro W3" , "Hiragino Kaku Gothic Pro" , "Meiryo UI" , "メイリオ" , Meiryo , "ＭＳ Ｐゴシック" , "MS PGothic" , sans-serif;
     color: var(--main-black-color);
     margin: 0;
     background: var(--main-rightbackground-color);
+    height:100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+
 }
 
 h1 {
     margin-left: 10px;
+    font-size: 2rem;
 }
-/* Home */
 
+/* Home */
 .pane_container {
     display: flex;
-    overflow-y: scroll;
-
+    width: 100%;
+    justify-content: center;
 }
+
 .left_pane {
-    min-width: 50px;
-    width:7%;
+    min-width: 100px;
+    width: 5%;
     text-align: center;
 }
+.left_pane_items {
+    position: sticky;
+    top: 0;
+    padding: 9px;
+}
+
 .center_pane {
-    max-width: 900px;
-    width: 86%;
+    display: flex;
+    flex-direction: column;
+    max-width: 600px;
+    min-width: 200px;
+    width: 80%;
     border-left: 1px solid var(--main-gray-color);
     border-right: 1px solid var(--main-gray-color);
-    height: 100vh;
-    overflow-y: scroll;
+    height: 100%;
+}
+.center_pane_head {
+    position: sticky;
+    top: 0;
+    height: 50px;
+    width: 100%;
+    background: var(--main-rightbackground-color);
+    z-index: 10;
+    border-bottom: 1px solid var(--main-gray-color);
+}
+
+@media (max-width: 767px) {
+    .left_pane {display: none;}
+    .center_pane{width: 100%;}
+}
+
+@media (max-width:990px) {
+    .right_pane {
+        display: none;
+    }
+}
+.right_pane {
+    text-align: center;
+    padding: 9px;
+    min-width: 500px;
+    width:15%;
+
 }
 
 /* common */
@@ -68,9 +112,7 @@ h1 {
     color: var(--main-black-color);
     display: flex;
     padding: 1%;
-    border-top: 1px solid var(--main-gray-color);
     border-bottom: 10px solid var(--main-gray-color);
-
 }
 
 .text_area {
@@ -193,4 +235,43 @@ input {
 /* LeftPane */
 .user_info {
     margin-top: 30px;
+}
+
+/* RightPane */
+/* News */
+.news {
+    position: fixed;
+    background: var(--main-background-color);
+    border-radius: 20px;
+    max-width: 380px;
+    text-align: left;
+    padding: 0 13px;
+    margin: 15px;
+}
+.news_head {
+    font-weight: bold;
+    font-size: 18px;
+    padding:9px 0;
+}
+.news_card {
+    width: 100%;
+    border-top: 1px solid var(--main-gray-color);
+    padding:9px 0;
+}
+a:link, a:visited, a:hover, a:active {
+    color:var(--main-black-color);
+    text-decoration:none;
+}
+.news_publishedAt {
+    font-size: 11px;
+    color: rgb(101, 119, 134);
+}
+
+.news_article{
+    display: flex;
+}
+.news_title {
+    font-size: 13px;
+    font-weight: bolder;
+    margin-right: 5px;
 }

@@ -15,20 +15,22 @@ export default function LeftPane(): JSX.Element {
   console.log("isAuthenticated", isAuthenticated);
   return (
     <div className={styles.left_pane}>
-      <Link to={"/"}>
-        <img src={"/" + icon} alt="icon" width="50px" />
-      </Link>
-      <div className={styles.user_info}>
-        <UserIcon username={username} />
-        <div>{username}</div>
+      <div className={styles.left_pane_items}>
+        <Link to={"/"}>
+          <img src={"/" + icon} alt="icon" width="50px" />
+        </Link>
+        <div className={styles.user_info}>
+          <UserIcon username={username} />
+          <div>{username}</div>
+        </div>
+        {user ? (
+          <>
+            <LogoutButton /> <div>{user.nickname}</div>
+          </>
+        ) : (
+          <LoginButton />
+        )}
       </div>
-      {user ? (
-        <>
-          <LogoutButton /> <div>{user.nickname}</div>
-        </>
-      ) : (
-        <LoginButton />
-      )}
     </div>
   );
 }

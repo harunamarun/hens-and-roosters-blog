@@ -53,3 +53,15 @@ export const updateBlog = (id: number, content: string): Promise<unknown> => {
     body: JSON.stringify({ content }),
   }).catch((error) => console.error(error));
 };
+
+export const getNewsHeadline = (): Promise<Array<Record<string, unknown>>> => {
+  const apiKey = process.env.NEWS_API_KEY;
+  const url =
+    "http://newsapi.org/v2/top-headlines?" + "country=jp&" + `apiKey=${apiKey}`;
+  const req = new Request(url);
+
+  return fetch(req)
+    .then((response) => response.json())
+    .then((res) => res.articles.slice(0, 5))
+    .catch((error) => console.error(error));
+};
