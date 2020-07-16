@@ -63,7 +63,7 @@ module.exports = (models) => {
   };
   const listBlogs = (req, res) =>
     models.blogs
-      .list()
+      .list({ keyword: req.query.keyword })
       .then((blogs) => blogs.map((blog) => blog.serialize()))
       .then((blogs) => res.status(200).json(blogs))
       .catch((err) => res.status(400).send(err.message));

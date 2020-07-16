@@ -4,6 +4,13 @@ import * as ReactDOM from "react-dom";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import ItemDetail from "./components/ItemDetail";
 import { Auth0Provider } from "@auth0/auth0-react";
+import queryString from "query-string";
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { fab } from "@fortawesome/free-brands-svg-icons";
+import { fas } from "@fortawesome/free-solid-svg-icons";
+import { far } from "@fortawesome/free-regular-svg-icons";
+
+library.add(fab, fas, far);
 
 ReactDOM.render(
   <Auth0Provider
@@ -13,10 +20,12 @@ ReactDOM.render(
   >
     <BrowserRouter>
       <Switch>
-        <Route exact path="/">
-          <Home />
-        </Route>
         <Route path="/post/:id" component={ItemDetail} />
+        <Route
+          render={(props) => {
+            return <Home query={queryString.parse(props.location.search)} />;
+          }}
+        />
       </Switch>
     </BrowserRouter>
   </Auth0Provider>,

@@ -3,8 +3,15 @@ import { getUserName } from "../utils";
 
 const baseUrl = process.env.BACKEND_URL;
 
-export const getBlogs = (): Promise<blogDict[]> =>
-  fetch(`${baseUrl}/api/blogs/`).then((request) => request.json());
+export const getBlogs = (keyword = undefined): Promise<blogDict[]> => {
+  if (keyword === undefined) {
+    return fetch(`${baseUrl}/api/blogs/`).then((request) => request.json());
+  } else {
+    return fetch(`${baseUrl}/api/blogs/?keyword=${keyword}`).then((request) =>
+      request.json()
+    );
+  }
+};
 
 export const getBlogById = (id: number): Promise<blogDict> =>
   fetch(`${baseUrl}/api/blogs/${id}`).then((request) => request.json());

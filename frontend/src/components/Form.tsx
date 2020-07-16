@@ -64,6 +64,7 @@ export default function Form(): JSX.Element {
         <label htmlFor="input-file">
           <img src={"/" + albumIcon} width="17px" />
           <input
+            className={styles.form_input}
             type="file"
             id="input-file"
             accept="image/png, image/jpeg"

@@ -4,11 +4,15 @@ import LeftPane from "./components/LeftPane";
 import RightPane from "./components/RightPane";
 import CenterPane from "./components/CenterPane";
 
-function Home(): JSX.Element {
+type propsType = {
+  query: Record<string, unknown>;
+};
+
+function Home(props: propsType): JSX.Element {
   return (
     <div className={styles.pane_container}>
       <LeftPane />
-      <CenterPane />
+      <CenterPane query={props.query} />
       <RightPane />
     </div>
   );

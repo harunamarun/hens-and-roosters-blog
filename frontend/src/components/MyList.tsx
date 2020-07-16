@@ -5,12 +5,16 @@ import styles from "../index.css";
 import UserIcon from "./UserIcon";
 import moment from "moment";
 
-export default function MyList(): JSX.Element {
+type propsType = {
+  query: Record<string, unknown>;
+};
+export default function MyList(props: propsType): JSX.Element {
   const [blogs, setBlogs] = useState([]);
+  const query = props.query;
 
   useEffect(() => {
-    getBlogs().then((items) => setBlogs(items));
-  }, []);
+    getBlogs(query.keyword).then((items) => setBlogs(items));
+  }, [query]);
 
   return (
     <React.Fragment>
