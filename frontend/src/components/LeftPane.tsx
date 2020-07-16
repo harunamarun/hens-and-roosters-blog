@@ -13,11 +13,17 @@ export default function LeftPane(): JSX.Element {
   const { user, isAuthenticated } = useAuth0();
   console.log("user", user);
   console.log("isAuthenticated", isAuthenticated);
+
   return (
     <div className={styles.left_pane}>
       <div className={styles.left_pane_items}>
         <Link to={"/"}>
-          <img src={"/" + icon} alt="icon" width="50px" />
+          <img
+            src={"/" + icon}
+            alt="icon"
+            className={styles.main_icon}
+            id="main_icon"
+          />
         </Link>
         <div className={styles.user_info}>
           <UserIcon username={username} />

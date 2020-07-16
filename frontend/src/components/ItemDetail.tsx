@@ -8,6 +8,8 @@ import moment from "moment";
 import UserIcon from "./UserIcon";
 import { getUserName } from "../utils";
 import { RouteComponentProps } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { Link } from "react-router-dom";
 
 type Props = RouteComponentProps<{ id: string }>;
 
@@ -61,10 +63,12 @@ export default function ItemDetail(props: Props): JSX.Element {
   ) : (
     <>
       <div className={styles.detail_content}>{blog.content}</div>
-      <img
-        src={blog.imageURL}
-        style={{ height: "200px", borderRadius: "20px" }}
-      />
+      {blog.imageURL && (
+        <img
+          src={blog.imageURL}
+          style={{ height: "200px", borderRadius: "20px" }}
+        />
+      )}
       <div className={styles.detail_time}>
         posted at:{" "}
         {moment
@@ -94,7 +98,17 @@ export default function ItemDetail(props: Props): JSX.Element {
         <LeftPane />
         <div className={styles.center_pane}>
           <div className={styles.center_pane_head}>
-            <h1>cock-a-doodle-doo</h1>
+            <h1>
+              {" "}
+              <Link to={"/"}>
+                <FontAwesomeIcon
+                  icon={["fas", "arrow-left"]}
+                  color={"#2AA1F2"}
+                  style={{ marginRight: "13px" }}
+                />
+              </Link>
+              cock-a-doodle-doo
+            </h1>
           </div>
           <div className={styles.detail_area}>
             <div className={styles.left_side}>

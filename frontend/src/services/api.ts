@@ -64,7 +64,7 @@ export const updateBlog = (id: number, content: string): Promise<unknown> => {
 export const getNewsHeadline = (): Promise<Array<Record<string, unknown>>> => {
   const apiKey = process.env.NEWS_API_KEY;
   const url =
-    "http://newsapi.org/v2/top-headlines?" + "country=jp&" + `apiKey=${apiKey}`;
+    "https://newsapi.org/v2/top-headlines?" + "country=jp&" + `apiKey=${apiKey}`;
   const req = new Request(url);
 
   return fetch(req)

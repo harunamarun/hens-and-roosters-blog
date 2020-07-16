@@ -4,8 +4,8 @@ import styles from "../index.css";
 import niwatorisound from "../assets/cock.mp3";
 import UserIcon from "./UserIcon";
 import { getUserName } from "../utils";
-import albumIcon from "../assets/album.png";
 import closeIcon from "../assets/close.png";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export default function Form(): JSX.Element {
   const [content, setContent] = useState("");
@@ -36,6 +36,21 @@ export default function Form(): JSX.Element {
     setPreviewImage(null);
   };
 
+  const postBlog = () => {
+    createBlog(content, imageFile);
+    setContent("");
+    setImageFile(null);
+    setPreviewImage(null);
+    const audioElement = document.getElementById("cock-audio");
+    if (!(audioElement instanceof HTMLMediaElement)) {
+      return;
+    }
+    const icon = document.getElementById("main_icon");
+    icon.classList.add(styles.onclick);
+    audioElement.play();
+    setTimeout(() => location.reload(), 2500);
+  };
+
   return (
     <div className={styles.form_area}>
       <div className={styles.left_side}>
@@ -61,34 +76,28 @@ export default function Form(): JSX.Element {
             />
           </div>
         )}
-        <label htmlFor="input-file">
-          <img src={"/" + albumIcon} width="17px" />
-          <input
-            className={styles.form_input}
-            type="file"
-            id="input-file"
-            accept="image/png, image/jpeg"
-            onChange={handleImageInput}
-          />
-        </label>
-        <button
-          className={styles.btn_post}
-          onClick={() => {
-            createBlog(content, imageFile);
-            setContent("");
-            setImageFile(null);
-            setPreviewImage(null);
-            const audioElement = document.getElementById("cock-audio");
-            if (!(audioElement instanceof HTMLMediaElement)) {
-              return;
-            }
-            audioElement.play();
-            setTimeout(() => location.reload(), 2500);
-          }}
-        >
-          cock-a-doodle-doo
-        </button>
-        <audio src={niwatorisound} id="cock-audio" />
+        <div className={styles.form_bottom}>
+          <label htmlFor="input-file" className={styles.btn_album}>
+            <FontAwesomeIcon icon={["far", "image"]} color={"#2AA1F2"} />
+            <input
+              className={styles.form_input}
+              type="file"
+              id="input-file"
+              accept="image/png, image/jpeg"
+              onChange={handleImageInput}
+            />
+          </label>
+          {content ? (
+            <button className={styles.btn_post} onClick={postBlog}>
+              cock-a-doodle-doo
+            </button>
+          ) : (
+            <button disabled className={styles.btn_post} onClick={postBlog}>
+              cock-a-doodle-doo
+            </button>
+          )}
+          <audio src={niwatorisound} id="cock-audio" />
+        </div>
       </div>
     </div>
   );
