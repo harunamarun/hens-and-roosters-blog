@@ -30,15 +30,8 @@ export const createBlog = (content: string, imageFile: any): void => {
     method: "POST",
     body: formData,
   })
-    .then((response) => {
-      console.log(response);
-      return response.json();
-    })
-    .then((data) => {
-      console.log(data);
-      console.log(JSON.stringify(data));
-      return JSON.stringify(data);
-    })
+    .then((response) => response.json())
+    .then((data) => JSON.stringify(data))
     .catch((error) => console.error(error));
 };
 
@@ -64,15 +57,18 @@ export const updateBlog = (id: number, content: string): Promise<unknown> => {
 };
 
 export const getNewsHeadline = (): Promise<Array<Record<string, unknown>>> => {
-  const apiKey = process.env.NEWS_API_KEY;
+  const azureKey = process.env.AZURE_KEY;
   const url =
-    "https://newsapi.org/v2/top-headlines?" +
-    "country=jp&" +
-    `apiKey=${apiKey}`;
+    "https://hensandroosters.cognitiveservices.azure.com/bing/v7.0/news";
   const req = new Request(url);
 
-  return fetch(req)
-    .then((response) => response.json())
-    .then((res) => res.articles.slice(0, 5))
+  return fetch(req, {
+    headers: {
+      "Content-Type": "application/json; charset=utf-8",
+      "Ocp-Apim-Subscription-Key": `${azureKey}`,
+    },
+  })
+    .then((res) => res.json())
+    .then((res) => res.value)
     .catch((error) => console.error(error));
 };

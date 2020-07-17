@@ -20,11 +20,11 @@ spec:
         env:
           - name: BACKEND_URL
             value: "https://hens-and-roosters.tk"
-          - name: NEWS_API_KEY
+          - name: AZURE_KEY
             valueFrom:
               secretKeyRef:
                 name: api-key-secret
-                key: api_key
+                key: azure_key
 
 ---
 apiVersion: v1
