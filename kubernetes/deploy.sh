@@ -1,3 +1,6 @@
+#!/bin/bash
+
+set -eu
 docker build -t gcr.io/hens-and-roosters/backend:latest ../backend
 docker build -t gcr.io/hens-and-roosters/frontend:latest ../frontend
 docker push gcr.io/hens-and-roosters/backend

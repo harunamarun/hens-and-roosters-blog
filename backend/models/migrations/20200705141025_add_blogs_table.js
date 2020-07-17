@@ -6,8 +6,6 @@ exports.up = function (knex) {
 
     t.text("content");
 
-    t.text("imageURL");
-
     t.timestamp("updated_at").notNullable().defaultTo(knex.fn.now());
 
     t.timestamp("created_at").notNullable().defaultTo(knex.fn.now());
