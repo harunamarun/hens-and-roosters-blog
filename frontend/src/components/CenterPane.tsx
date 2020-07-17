@@ -27,7 +27,7 @@ export default function CenterPane(props: propsType): JSX.Element {
             </h1>
           </div>
 
-          <MyList query={query} />
+          <MyList key={`${query.keyword}`} query={query} />
         </>
       ) : (
         <>

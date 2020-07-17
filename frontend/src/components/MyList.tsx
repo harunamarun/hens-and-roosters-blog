@@ -1,20 +1,41 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { getBlogs } from "../services/api";
 import { Link } from "react-router-dom";
 import styles from "../index.css";
 import UserIcon from "./UserIcon";
 import moment from "moment";
+import { useIntersection } from "use-intersection";
+import { PacmanLoader } from "halogenium";
 
 type propsType = {
   query: Record<string, unknown>;
 };
 export default function MyList(props: propsType): JSX.Element {
   const [blogs, setBlogs] = useState([]);
+  const [start, setStart] = useState(0);
+  const [loading, setLoading] = useState(false);
+  const [end, setEnd] = useState(false);
   const query = props.query;
+  const limit = 20;
+
+  const target = useRef<HTMLDivElement>(null);
+  const intersecting = useIntersection(target);
 
   useEffect(() => {
-    getBlogs(query.keyword).then((items) => setBlogs(items));
-  }, [query]);
+    if (intersecting && !loading && !end) {
+      setLoading(true);
+      getBlogs(query.keyword, start, limit).then((items) => {
+        if (items.length > 0) {
+          setBlogs(blogs.concat(items));
+          setLoading(false);
+          setStart(start + limit);
+        } else {
+          setLoading(false);
+          setEnd(true);
+        }
+      });
+    }
+  }, [intersecting]);
 
   return (
     <React.Fragment>
@@ -51,6 +72,13 @@ export default function MyList(props: propsType): JSX.Element {
           </Link>
         );
       })}
+      <div ref={target} className={styles.loading_container}>
+        {loading && (
+          <div className={styles.loading}>
+            <PacmanLoader color="#2AA1F2" size="16px" />
+          </div>
+        )}
+      </div>
     </React.Fragment>
   );
 }

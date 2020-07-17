@@ -3,14 +3,16 @@ import { getUserName } from "../utils";
 
 const baseUrl = process.env.BACKEND_URL;
 
-export const getBlogs = (keyword = undefined): Promise<blogDict[]> => {
-  if (keyword === undefined) {
-    return fetch(`${baseUrl}/api/blogs/`).then((request) => request.json());
-  } else {
-    return fetch(`${baseUrl}/api/blogs/?keyword=${keyword}`).then((request) =>
-      request.json()
-    );
+export const getBlogs = (
+  keyword = undefined,
+  start: number,
+  limit: number
+): Promise<blogDict[]> => {
+  let url = `${baseUrl}/api/blogs/?limit=${limit}&start=${start}`;
+  if (keyword) {
+    url = `${baseUrl}/api/blogs/?limit=${limit}&start=${start}&keyword=${keyword}`;
   }
+  return fetch(url).then((request) => request.json());
 };
 
 export const getBlogById = (id: number): Promise<blogDict> =>
@@ -64,7 +66,9 @@ export const updateBlog = (id: number, content: string): Promise<unknown> => {
 export const getNewsHeadline = (): Promise<Array<Record<string, unknown>>> => {
   const apiKey = process.env.NEWS_API_KEY;
   const url =
-    "https://newsapi.org/v2/top-headlines?" + "country=jp&" + `apiKey=${apiKey}`;
+    "https://newsapi.org/v2/top-headlines?" +
+    "country=jp&" +
+    `apiKey=${apiKey}`;
   const req = new Request(url);
 
   return fetch(req)

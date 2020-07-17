@@ -196,12 +196,20 @@ input.form_input{
     white-space: pre-wrap;
 }
 
-.list_image{
+.list_image {
     display: block;
     text-align: center;
     padding:5px;
     position: relative;
     background: var(--main-rightbackground-color);
+}
+.loading_container {
+    text-align: center;
+}
+
+.loading {
+    margin: 10px;
+    padding-left: calc(50% - 32px);
 }
 
 

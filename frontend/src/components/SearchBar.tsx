@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import styles from "../index.css";
-import { Link } from "react-router-dom";
+import { useHistory, Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export default function SearchBar(): JSX.Element {
   const [keyword, setKeyword] = useState("");
+  const history = useHistory();
 
   return (
     <div className={styles.search_bar}>
@@ -18,7 +19,7 @@ export default function SearchBar(): JSX.Element {
         onKeyDown={(e) => {
           console.log("key", e.keyCode);
           if (e.keyCode === 13) {
-            window.location.href = `/?keyword=${keyword}`;
+            history.push(`/?keyword=${keyword}`);
           }
         }}
       />

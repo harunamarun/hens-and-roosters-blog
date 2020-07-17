@@ -10,6 +10,7 @@ import { getUserName } from "../utils";
 import { RouteComponentProps } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from "react-router-dom";
+import { PacmanLoader } from "halogenium";
 
 type Props = RouteComponentProps<{ id: string }>;
 
@@ -36,7 +37,11 @@ export default function ItemDetail(props: Props): JSX.Element {
   }, []);
 
   if (!blog.name) {
-    return <div>Loading</div>;
+    return (
+      <div className={styles.loading}>
+        <PacmanLoader color="#2AA1F2" size="16px" />
+      </div>
+    );
   }
 
   const mainContent = updateStateFlag ? (
