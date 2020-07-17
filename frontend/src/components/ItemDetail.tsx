@@ -46,15 +46,15 @@ export default function ItemDetail(props: Props): JSX.Element {
 
   const mainContent = updateStateFlag ? (
     <>
+      <label htmlFor="recomment"></label>
+      <textarea
+        className={styles.text_area}
+        name="recomment"
+        id="recomment"
+        value={content}
+        onChange={(e) => setContent(e.target.value)}
+      />
       <div className={styles.edit}>
-        <label htmlFor="recomment"></label>
-        <textarea
-          className={styles.text_area}
-          name="recomment"
-          id="recomment"
-          value={content}
-          onChange={(e) => setContent(e.target.value)}
-        />
         <button
           className={styles.btn_post}
           onClick={() => {
@@ -103,17 +103,10 @@ export default function ItemDetail(props: Props): JSX.Element {
         <LeftPane />
         <div className={styles.center_pane}>
           <div className={styles.center_pane_head}>
-            <h1>
-              {" "}
-              <Link to={"/"}>
-                <FontAwesomeIcon
-                  icon={["fas", "arrow-left"]}
-                  color={"#2AA1F2"}
-                  style={{ marginRight: "13px" }}
-                />
-              </Link>
-              cock-a-doodle-doo
-            </h1>
+            <Link className={styles.btn_arrow} to={"/"}>
+              <FontAwesomeIcon icon={["fas", "arrow-left"]} color={"#2AA1F2"} />
+            </Link>
+            <h1>cock-a-doodle-doo</h1>
           </div>
           <div className={styles.detail_area}>
             <div className={styles.left_side}>

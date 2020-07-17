@@ -1,8 +1,7 @@
 import React from "react";
 import { deleteBlog } from "../services/api";
-import trashIcon from "../assets/trash.png";
-import editIcon from "../assets/edit.png";
 import styles from "../index.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 type propsType = {
   id: number;
@@ -16,7 +15,7 @@ export default function ItemBottomBar(props: propsType): JSX.Element {
         className={styles.btn_edit}
         onClick={() => props.setUpdateStateFlag(true)}
       >
-        <img src={"/" + editIcon} width="17px" />
+        <FontAwesomeIcon icon={["far", "edit"]} color={"#657786"} />
       </button>
       <button
         className={styles.btn_delete}
@@ -26,7 +25,7 @@ export default function ItemBottomBar(props: propsType): JSX.Element {
           })
         }
       >
-        <img src={"/" + trashIcon} width="17px" />
+        <FontAwesomeIcon icon={["far", "trash-alt"]} color={"#657786"} />
       </button>
     </div>
   );

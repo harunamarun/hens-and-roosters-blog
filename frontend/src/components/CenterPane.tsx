@@ -15,16 +15,10 @@ export default function CenterPane(props: propsType): JSX.Element {
       {props.query.keyword ? (
         <>
           <div className={styles.center_pane_head}>
-            <h1>
-              <Link to={"/"}>
-                <FontAwesomeIcon
-                  icon={["fas", "arrow-left"]}
-                  color={"#2AA1F2"}
-                  style={{ marginRight: "13px" }}
-                />
-              </Link>
-              Search "{props.query.keyword}"
-            </h1>
+            <Link to={"/"} className={styles.btn_arrow}>
+              <FontAwesomeIcon icon={["fas", "arrow-left"]} color={"#2AA1F2"} />
+            </Link>
+            <h1>Search "{props.query.keyword}"</h1>
           </div>
 
           <MyList key={`${query.keyword}`} query={query} />

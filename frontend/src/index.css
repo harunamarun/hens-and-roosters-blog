@@ -2,6 +2,8 @@
     --main-font-size:16px;
     --main-blue-color:#2AA1F2;
     --hover-blue-color:#1a91da;
+    --hover-background-blue-color:#2AA1F21A;
+    --disabled-blue-color:#86D0F9;
     --main-gray-color:#E6ECF0;
     --main-background-color:#F5F8FA;
     --main-black-color:#14171A;
@@ -20,7 +22,7 @@ body {
 }
 
 h1 {
-    margin-left: 10px;
+    margin-left: 4px;
     font-size: 20px;
 }
 
@@ -51,6 +53,8 @@ h1 {
     min-height: 100vh;
 }
 .center_pane_head {
+    display: flex;
+    align-items: center;
     position: sticky;
     top: 0;
     height: 50px;
@@ -59,6 +63,15 @@ h1 {
     border-left: 1px solid var(--main-gray-color);
     border-right: 1px solid var(--main-gray-color);
     border-bottom: 1px solid var(--main-gray-color);
+    padding: 4px;
+}
+.btn_arrow {
+    font-size: 20px;
+    padding: 8px 12px;
+}
+.btn_arrow:hover {
+    border-radius: 100%;
+    background-color: var(--hover-background-blue-color);
 }
 
 @media (max-width: 767px) {
@@ -111,7 +124,7 @@ h1 {
 .form_area {
     color: var(--main-black-color);
     display: flex;
-    padding: 12px 12px 8px 12px;
+    padding: 12px 12px 6px 12px;
     border-bottom: 10px solid var(--main-gray-color);
     border-left: 1px solid var(--main-gray-color);
     border-right: 1px solid var(--main-gray-color);
@@ -152,6 +165,13 @@ input.form_input{
 
 .btn_album {
     font-size: 20px;
+    cursor:pointer;
+    padding: 5px;
+
+}
+.btn_album:hover {
+    border-radius: 100%;
+    background-color: var(--hover-background-blue-color);
 }
 
 .btn_post {
@@ -169,6 +189,9 @@ input.form_input{
 }
 .btn_post:hover {
     background-color: #1a91da;
+}
+.btn_post:disabled {
+    background-color: var(--disabled-blue-color);
 }
 
 /* MyList */
@@ -217,7 +240,7 @@ input.form_input{
 .detail_area {
     color: var(--main-black-color);
     display: flex;
-    padding: 1%;
+    padding: 12px 12px 6px 12px;
     border-bottom: 1px solid var(--main-gray-color);
     border-left: 1px solid var(--main-gray-color);
     border-right: 1px solid var(--main-gray-color);
@@ -229,6 +252,9 @@ input.form_input{
     font-size: var(--main-font-size);
     white-space: pre-wrap;
 
+}
+.edit {
+    height: 34px;
 }
 
 .detail_time {
@@ -242,6 +268,8 @@ input.form_input{
     display: flex;
 }
 .btn_edit {
+    padding: 6px;
+    font-size: 18px;
     display: block;
     border: none;
     outline: none;
@@ -249,11 +277,21 @@ input.form_input{
     cursor:pointer;
 }
 .btn_delete {
+    padding: 6px 9px;
+    font-size: 18px;
     display: block;
     border: none;
     outline: none;
     background: none;
     cursor:pointer;
+}
+.btn_edit:hover {
+    border-radius: 100%;
+    background-color: var(--hover-background-blue-color);
+}
+.btn_delete:hover {
+    border-radius: 100%;
+    background-color: var(--hover-background-blue-color);
 }
 
 /* LeftPane */

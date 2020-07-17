@@ -87,7 +87,7 @@ export default function Form(): JSX.Element {
               onChange={handleImageInput}
             />
           </label>
-          {content ? (
+          {content || imageFile ? (
             <button className={styles.btn_post} onClick={postBlog}>
               cock-a-doodle-doo
             </button>
