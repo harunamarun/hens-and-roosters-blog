@@ -9,7 +9,7 @@ import UserIcon from "./UserIcon";
 import { getUserName } from "../utils";
 import { RouteComponentProps } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { PacmanLoader } from "halogenium";
 
 type Props = RouteComponentProps<{ id: string }>;
@@ -27,6 +27,7 @@ export default function ItemDetail(props: Props): JSX.Element {
   const id = props.match.params.id;
   const [updateStateFlag, setUpdateStateFlag] = useState(false);
   const [content, setContent] = useState("");
+  const history = useHistory();
 
   useEffect(() => {
     getBlogById(id).then((item) => {
@@ -58,7 +59,7 @@ export default function ItemDetail(props: Props): JSX.Element {
         <button
           className={styles.btn_post}
           onClick={() => {
-            updateBlog(id, content).then(() => location.reload());
+            updateBlog(id, content).then(() => history.goBack());
           }}
         >
           Update

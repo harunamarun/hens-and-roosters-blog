@@ -2,6 +2,7 @@ import React from "react";
 import { deleteBlog } from "../services/api";
 import styles from "../index.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useHistory } from "react-router-dom";
 
 type propsType = {
   id: number;
@@ -9,6 +10,8 @@ type propsType = {
 };
 
 export default function ItemBottomBar(props: propsType): JSX.Element {
+  const history = useHistory();
+
   return (
     <div className={styles.bottombar}>
       <button
@@ -19,11 +22,7 @@ export default function ItemBottomBar(props: propsType): JSX.Element {
       </button>
       <button
         className={styles.btn_delete}
-        onClick={() =>
-          deleteBlog(props.id).then(() => {
-            window.location.href = "/";
-          })
-        }
+        onClick={() => deleteBlog(props.id).then(() => history.push(`/`))}
       >
         <FontAwesomeIcon icon={["far", "trash-alt"]} color={"#657786"} />
       </button>

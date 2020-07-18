@@ -10,4 +10,4 @@ COPY . .
 
 EXPOSE 8080
 
-CMD sh -c "yarn dev"
+CMD sh -c "yarn start"
