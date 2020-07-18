@@ -13,11 +13,9 @@ export default function SearchBar(): JSX.Element {
         className={styles.search_input}
         type="search"
         id="site-search"
-        name="q"
-        aria-label="Search through site content"
+        placeholder="Search cock-a-doodle-doos"
         onChange={(e) => setKeyword(e.target.value)}
         onKeyDown={(e) => {
-          console.log("key", e.keyCode);
           if (e.keyCode === 13) {
             history.push(`/?keyword=${keyword}`);
           }

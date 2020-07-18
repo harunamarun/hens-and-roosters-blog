@@ -6,8 +6,8 @@ module.exports = (knex, Blog) => {
 
     if (keyword !== undefined) {
       return knex("blogs")
-        .where("content", "like", `%${keyword}%`)
-        .orWhere("name", "like", `%${keyword}%`)
+        .where("content", "ilike", `%${keyword}%`)
+        .orWhere("name", "ilike", `%${keyword}%`)
         .select()
         .orderBy("created_at", "desc")
         .limit(limit)
