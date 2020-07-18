@@ -17,6 +17,13 @@ spec:
       containers:
       - image: gcr.io/hens-and-roosters/frontend
         name: frontend
+        resources:
+            limits:
+              memory: "500Mi"
+              cpu: "0.5"
+            requests:
+              memory: "500Mi"
+              cpu: "0.5"
         env:
           - name: BACKEND_URL
             value: "https://hens-and-roosters.tk"

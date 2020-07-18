@@ -12,14 +12,22 @@ module.exports = (knex, Blog) => {
         .orderBy("created_at", "desc")
         .limit(limit)
         .offset(start)
-        .then((rows) => rows.map((row) => new Blog(row)));
+        .then((rows) => rows.map((row) => new Blog(row)))
+        .catch((err) => {
+          console.log(err);
+          return Promise.reject(err);
+        });
     } else {
       return knex("blogs")
         .select(Blog.id)
         .orderBy("created_at", "desc")
         .limit(limit)
         .offset(start)
-        .then((rows) => rows.map((row) => new Blog(row)));
+        .then((rows) => rows.map((row) => new Blog(row)))
+        .catch((err) => {
+          console.log(err);
+          return Promise.reject(err);
+        });
     }
   };
 };

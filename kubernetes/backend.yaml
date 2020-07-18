@@ -14,10 +14,26 @@ spec:
       labels:
         app: backend
     spec:
+      volumes:
+        - name: google-cloud-key
+          secret:
+            secretName: datastore-key
       containers:
       - image: gcr.io/hens-and-roosters/backend
         name: backend
+        resources:
+            limits:
+              memory: "1500Mi"
+              cpu: "1.0"
+            requests:
+              memory: "1500Mi"
+              cpu: "1.0"
+        volumeMounts:
+          - mountPath: /var/secrets/google
+            name: google-cloud-key
         env:
+          - name: GOOGLE_APPLICATION_CREDENTIALS
+            value: /var/secrets/google/key.json
           - name: DB_HOST
             valueFrom:
               secretKeyRef:
