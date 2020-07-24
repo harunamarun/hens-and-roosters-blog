@@ -67,6 +67,17 @@ export default function MyList(props: propsType): JSX.Element {
                     />
                   </div>
                 )}
+                {item.gifURL && (
+                  <div className={styles.list_image}>
+                    <img
+                      src={item.gifURL}
+                      style={{
+                        height: "200px",
+                        borderRadius: "20px",
+                      }}
+                    />
+                  </div>
+                )}
               </div>
             </div>
           </Link>

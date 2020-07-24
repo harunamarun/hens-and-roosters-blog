@@ -32,6 +32,11 @@ spec:
               secretKeyRef:
                 name: api-key-secret
                 key: azure_key
+          - name: GIPHY_KEY
+            valueFrom:
+              secretKeyRef:
+                name: api-key-secret
+                key: giphy_key
 
 ---
 apiVersion: v1

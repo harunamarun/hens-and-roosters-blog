@@ -18,10 +18,15 @@ export const getBlogs = (
 export const getBlogById = (id: number): Promise<blogDict> =>
   fetch(`${baseUrl}/api/blogs/${id}`).then((request) => request.json());
 
-export const createBlog = (content: string, imageFile: any): void => {
+export const createBlog = (
+  content: string,
+  imageFile: any,
+  gifURL: string
+): void => {
   const formData = new FormData();
   formData.append("name", getUserName());
   formData.append("content", content);
+  formData.append("gifURL", gifURL);
   if (imageFile) {
     formData.append("imageFile", imageFile);
   }

@@ -11,7 +11,7 @@ type propsType = {
 export default function CenterPane(props: propsType): JSX.Element {
   const query = props.query;
   return (
-    <div className={styles.center_pane}>
+    <div className={styles.center_pane} id="center">
       {props.query.keyword ? (
         <>
           <div className={styles.center_pane_head}>

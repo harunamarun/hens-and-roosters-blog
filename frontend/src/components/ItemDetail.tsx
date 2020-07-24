@@ -20,6 +20,7 @@ export default function ItemDetail(props: Props): JSX.Element {
     id: undefined,
     content: undefined,
     imageURL: undefined,
+    gifURL: undefined,
     favers: undefined,
     updatedAt: undefined,
     createdAt: undefined,
@@ -31,7 +32,6 @@ export default function ItemDetail(props: Props): JSX.Element {
 
   useEffect(() => {
     getBlogById(id).then((item) => {
-      console.log("item", item.createdAt);
       setBlog(item);
       setContent(item.content);
     });
@@ -44,6 +44,10 @@ export default function ItemDetail(props: Props): JSX.Element {
       </div>
     );
   }
+
+  let url = "";
+  if (blog.imageURL) url = blog.imageURL;
+  else if (blog.gifURL) url = blog.gifURL;
 
   const mainContent = updateStateFlag ? (
     <>
@@ -69,11 +73,8 @@ export default function ItemDetail(props: Props): JSX.Element {
   ) : (
     <>
       <div className={styles.detail_content}>{blog.content}</div>
-      {blog.imageURL && (
-        <img
-          src={blog.imageURL}
-          style={{ height: "200px", borderRadius: "20px" }}
-        />
+      {url && (
+        <img src={url} style={{ height: "200px", borderRadius: "20px" }} />
       )}
       <div className={styles.detail_time}>
         posted at:{" "}

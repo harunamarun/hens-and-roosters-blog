@@ -18,10 +18,13 @@ services:
       - db
     tty: true
     stdin_open: true
+    volumes:
+      - ./backend/hens-and-roosters-c7b43570ea2e.json:/tmp/secret.json
     environment:
         DB_HOST: db
         DB_USER: "postgres"
         DB_PASSWORD: "postgres"
+        GOOGLE_APPLICATION_CREDENTIALS: /tmp/secret.json
   frontend:
     image: frontend
     build: ./frontend
@@ -33,6 +36,8 @@ services:
     stdin_open: true
     environment:
       BACKEND_URL: http://localhost:3000
+      AZURE_KEY: ${AZURE_KEY}
+      GIPHY_KEY: ${GIPHY_KEY}
   test:
     image: backend
     build: ./backend

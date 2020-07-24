@@ -52,7 +52,7 @@ module.exports = {
       template: `${__dirname}/src/index.html`,
     }),
     new CleanWebpackPlugin(),
-    new webpack.EnvironmentPlugin(["BACKEND_URL", "AZURE_KEY"]),
+    new webpack.EnvironmentPlugin(["BACKEND_URL", "AZURE_KEY", "GIPHY_KEY"]),
   ],
   devServer: {
     contentBase: `${__dirname}/dist`,

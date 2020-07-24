@@ -42,6 +42,7 @@ module.exports = (models) => {
             content: req.body.content,
             name: req.body.name,
             imageURL: publicUrl,
+            gifURL: req.body.gifURL,
           })
           .then((blog) => blog.serialize())
           .then((blog) => res.status(201).json(blog))
@@ -55,6 +56,7 @@ module.exports = (models) => {
           content: req.body.content,
           name: req.body.name,
           imageURL: "",
+          gifURL: req.body.gifURL,
         })
         .then((blog) => blog.serialize())
         .then((blog) => res.status(201).json(blog))

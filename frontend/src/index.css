@@ -167,9 +167,17 @@ input.form_input{
     font-size: 20px;
     cursor:pointer;
     padding: 5px;
-
 }
 .btn_album:hover {
+    border-radius: 100%;
+    background-color: var(--hover-background-blue-color);
+}
+.btn_gif {
+    cursor:pointer;
+    padding: 5px;
+    padding-top:7px;
+}
+.btn_gif:hover {
     border-radius: 100%;
     background-color: var(--hover-background-blue-color);
 }
@@ -192,6 +200,20 @@ input.form_input{
 }
 .btn_post:disabled {
     background-color: var(--disabled-blue-color);
+}
+
+.giphy_search_bar {
+    margin: 15px 0;
+    outline: none;
+    width: 100%;
+    height: 30px;
+    text-align: left;
+    border: 1px solid var(--main-gray-color);
+    border-radius: 20px;
+    background: var(--main-gray-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 /* MyList */
@@ -366,7 +388,7 @@ a:link, a:visited, a:hover, a:active {
 }
 .search_input{
     outline: none;
-    width: 80%;
+    width: 90%;
     border:none;
     background: none;
 }
