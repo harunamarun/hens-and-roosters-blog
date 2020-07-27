@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { createBlog } from "../services/api";
 import styles from "../index.css";
 import niwatorisound from "../assets/cock.mp3";
@@ -10,6 +10,7 @@ import Giphy from "./Giphy";
 import gificon from "../assets/gif.png";
 import gificonDis from "../assets/gifdis.png";
 import Modal from "react-modal";
+import { ThemeContext } from "../store/ThemeContext";
 
 Modal.setAppElement("#root");
 
@@ -19,8 +20,9 @@ export default function Form(): JSX.Element {
   const [previewImage, setPreviewImage] = useState(null);
   const [gifURL, setGifURL] = useState("");
   const [modalIsOpen, setModalIsOpen] = useState(false);
+  const { state } = useContext(ThemeContext);
 
-  const handleImageInput = (e) => {
+  const handleImageInput = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files[0];
     setImageFile(file);
 
@@ -39,7 +41,7 @@ export default function Form(): JSX.Element {
     inputElement.value = "";
   };
 
-  const cancelFile = (e) => {
+  const cancelFile = () => {
     setImageFile(null);
     setPreviewImage(null);
     setGifURL("");
@@ -123,19 +125,28 @@ export default function Form(): JSX.Element {
     );
   };
 
-  const customStyles = {
-    overlay: {
-      zIndex: "100",
-    },
-    content: {
-      position: "absolute",
-      top: "60px",
-      left: "50%",
-      right: "auto",
-      bottom: "60px",
-      marginRight: "50%",
-      transform: "translate(-50%)",
-    },
+  const customStyles = () => {
+    const style = {
+      overlay: {
+        zIndex: "100",
+        backgroundColor: "rgba(256,256,256,0.75)",
+      },
+      content: {
+        position: "absolute",
+        top: "60px",
+        left: "50%",
+        right: "auto",
+        bottom: "60px",
+        marginRight: "50%",
+        transform: "translate(-50%)",
+        backgroundColor: "rgba(256,256,256)",
+      },
+    };
+    if (state.isDark === "true") {
+      style.overlay.backgroundColor = "rgba(0, 0, 0, 0.75)";
+      style.content.backgroundColor = "#192734";
+    }
+    return style;
   };
 
   return (
@@ -170,7 +181,7 @@ export default function Form(): JSX.Element {
           <audio src={niwatorisound} id="cock-audio" />
         </div>
         <Modal
-          style={customStyles}
+          style={customStyles()}
           isOpen={modalIsOpen}
           onRequestClose={() => {
             document.body.removeAttribute("style");

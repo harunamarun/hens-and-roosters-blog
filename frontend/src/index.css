@@ -4,17 +4,18 @@
     --hover-blue-color:#1a91da;
     --hover-background-blue-color:#2AA1F21A;
     --disabled-blue-color:#86D0F9;
-    --main-gray-color:#E6ECF0;
-    --main-background-color:#F5F8FA;
-    --main-black-color:#14171A;
-    --main-rightbackground-color: #FFFFFF;
+    --main-border-color:#E6ECF0;
+    --main-subbackground-color:#F5F8FA;
+    --main-text-color:#14171A;
+    --main-background-color: #FFFFFF;
 }
+
 
 body {
     font-family: "Helvetica Neue" , Helvetica , Arial , Verdana , Roboto , "游ゴシック" , "Yu Gothic" , "游ゴシック体" , "YuGothic" , "ヒラギノ角ゴ Pro W3" , "Hiragino Kaku Gothic Pro" , "Meiryo UI" , "メイリオ" , Meiryo , "ＭＳ Ｐゴシック" , "MS PGothic" , sans-serif;
-    color: var(--main-black-color);
+    color: var(--main-text-color);
     margin: 0;
-    background: var(--main-rightbackground-color);
+    background: var(--main-background-color);
     height:100%;
     width: 100%;
     display: flex;
@@ -24,6 +25,10 @@ body {
 h1 {
     margin-left: 4px;
     font-size: 20px;
+}
+
+input {
+    -webkit-appearance: textfield;
 }
 
 /* Home */
@@ -58,11 +63,11 @@ h1 {
     position: sticky;
     top: 0;
     height: 50px;
-    background: var(--main-rightbackground-color);
+    background: var(--main-background-color);
     z-index: 10;
-    border-left: 1px solid var(--main-gray-color);
-    border-right: 1px solid var(--main-gray-color);
-    border-bottom: 1px solid var(--main-gray-color);
+    border-left: 1px solid var(--main-border-color);
+    border-right: 1px solid var(--main-border-color);
+    border-bottom: 1px solid var(--main-border-color);
     padding: 4px;
 }
 .btn_arrow {
@@ -120,23 +125,38 @@ h1 {
 
 }
 
+.darkmode {
+    font-size: var(--main-font-size);
+    margin:10px;
+    cursor:pointer;
+    padding: 5px;
+}
+.darkmode:hover {
+    border-radius: 100%;
+    background-color: var(--hover-background-blue-color);
+}
+
 /* Form */
 .form_area {
-    color: var(--main-black-color);
+    color: var(--main-text-color);
     display: flex;
     padding: 12px 12px 6px 12px;
-    border-bottom: 10px solid var(--main-gray-color);
-    border-left: 1px solid var(--main-gray-color);
-    border-right: 1px solid var(--main-gray-color);
+    border-bottom: 10px solid var(--main-border-color);
+    border-left: 1px solid var(--main-border-color);
+    border-right: 1px solid var(--main-border-color);
+
 }
 
 .text_area {
+    color: var(--main-text-color);
     resize: none;
     border: none;
     outline: none;
     width: 98%;
     font-size: 20px;
-    background: var(--main-rightbackground-color);
+    background: var(--main-background-color);
+    font-family: "Helvetica Neue" , Helvetica , Arial , Verdana , Roboto , "游ゴシック" , "Yu Gothic" , "游ゴシック体" , "YuGothic" , "ヒラギノ角ゴ Pro W3" , "Hiragino Kaku Gothic Pro" , "Meiryo UI" , "メイリオ" , Meiryo , "ＭＳ Ｐゴシック" , "MS PGothic" , sans-serif;
+
 
 }
 .form_img_preview{
@@ -208,9 +228,9 @@ input.form_input{
     width: 100%;
     height: 30px;
     text-align: left;
-    border: 1px solid var(--main-gray-color);
+    border: 1px solid var(--main-border-color);
     border-radius: 20px;
-    background: var(--main-gray-color);
+    background: var(--main-border-color);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -218,12 +238,12 @@ input.form_input{
 
 /* MyList */
 .card {
-    color: var(--main-black-color);
+    color: var(--main-text-color);
     display: flex;
     padding: 1%;
-    border-bottom: 1px solid var(--main-gray-color);
-    border-left: 1px solid var(--main-gray-color);
-    border-right: 1px solid var(--main-gray-color);
+    border-bottom: 1px solid var(--main-border-color);
+    border-left: 1px solid var(--main-border-color);
+    border-right: 1px solid var(--main-border-color);
 
 }
 .list_time{
@@ -246,7 +266,7 @@ input.form_input{
     text-align: center;
     padding:5px;
     position: relative;
-    background: var(--main-rightbackground-color);
+    background: var(--main-background-color);
 }
 .loading_container {
     text-align: center;
@@ -260,12 +280,12 @@ input.form_input{
 
 /* ItemDetail */
 .detail_area {
-    color: var(--main-black-color);
+    color: var(--main-text-color);
     display: flex;
     padding: 12px 12px 6px 12px;
-    border-bottom: 1px solid var(--main-gray-color);
-    border-left: 1px solid var(--main-gray-color);
-    border-right: 1px solid var(--main-gray-color);
+    border-bottom: 1px solid var(--main-border-color);
+    border-left: 1px solid var(--main-border-color);
+    border-right: 1px solid var(--main-border-color);
 }
 .detail_content {
     overflow-wrap: break-word;
@@ -335,7 +355,7 @@ input.form_input{
 .news {
     position: sticky;
     top:70px;
-    background: var(--main-background-color);
+    background: var(--main-subbackground-color);
     border-radius: 20px;
     max-width: 400px;
     min-width: 100px;
@@ -349,11 +369,11 @@ input.form_input{
 }
 .news_card {
     width: 100%;
-    border-top: 1px solid var(--main-gray-color);
+    border-top: 1px solid var(--main-border-color);
     padding:9px 0;
 }
 a:link, a:visited, a:hover, a:active {
-    color:var(--main-black-color);
+    color:var(--main-text-color);
     text-decoration:none;
 }
 .news_publishedAt {
@@ -379,16 +399,17 @@ a:link, a:visited, a:hover, a:active {
     width: 100%;
     height: 38px;
     text-align: left;
-    border: 1px solid var(--main-gray-color);
+    border: 1px solid var(--main-border-color);
     border-radius: 20px;
-    background: var(--main-gray-color);
+    background: var(--main-border-color);
     display: flex;
     justify-content: center;
     align-items: center;
 }
 .search_input{
+    color: var(--main-text-color);
     outline: none;
-    width: 90%;
+    width: 85%;
     border:none;
     background: none;
 }
