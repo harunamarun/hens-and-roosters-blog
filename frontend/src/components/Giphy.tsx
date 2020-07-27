@@ -64,6 +64,7 @@ export default function Giphy(props: Record<string, any>): JSX.Element {
           props.setGifURL(url);
           props.setPreviewImage(url);
           props.setModalIsOpen(false);
+          document.body.removeAttribute("style");
         }}
       />
     </>

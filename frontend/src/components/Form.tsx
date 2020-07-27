@@ -173,6 +173,7 @@ export default function Form(): JSX.Element {
           style={customStyles}
           isOpen={modalIsOpen}
           onRequestClose={() => {
+            document.body.removeAttribute("style");
             setModalIsOpen(false);
           }}
         >
