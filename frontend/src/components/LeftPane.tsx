@@ -13,10 +13,8 @@ import { ThemeContext } from "../store/ThemeContext";
 
 export default function LeftPane(): JSX.Element {
   const username = getUserName();
-  const { user, isAuthenticated } = useAuth0();
+  const { user } = useAuth0();
   const { state } = useContext(ThemeContext);
-  console.log("user", user);
-  console.log("isAuthenticated", isAuthenticated);
 
   return (
     <div className={styles.left_pane}>

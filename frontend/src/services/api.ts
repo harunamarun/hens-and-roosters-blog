@@ -20,7 +20,7 @@ export const getBlogById = (id: number): Promise<blogDict> =>
 
 export const createBlog = (
   content: string,
-  imageFile: any,
+  imageFile: File,
   gifURL: string
 ): void => {
   const formData = new FormData();
@@ -40,7 +40,7 @@ export const createBlog = (
     .catch((error) => console.error(error));
 };
 
-export const deleteBlog = (id: number): Promise<unknown> => {
+export const deleteBlog = (id: number): Promise<string | void> => {
   return fetch(`${baseUrl}/api/blogs/${id}`, {
     method: "DELETE",
     headers: {
@@ -51,7 +51,10 @@ export const deleteBlog = (id: number): Promise<unknown> => {
     .catch((error) => console.error(error));
 };
 
-export const updateBlog = (id: number, content: string): Promise<unknown> => {
+export const updateBlog = (
+  id: number,
+  content: string
+): Promise<Response | void> => {
   return fetch(`${baseUrl}/api/blogs/${id}`, {
     method: "PATCH",
     headers: {

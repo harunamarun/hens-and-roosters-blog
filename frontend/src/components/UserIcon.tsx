@@ -6,8 +6,9 @@ import usericon3 from "../assets/usericon3.jpg";
 import usericon4 from "../assets/usericon4.jpg";
 import usericon5 from "../assets/usericon5.jpg";
 import styles from "../index.css";
+import { userIconProps } from "../typing/propsType";
 
-export default function UserIcon(props): JSX.Element {
+export default function UserIcon(props: userIconProps): JSX.Element {
   const num = hashName(props.username) % 6;
   const iconArray = [
     usericon0,

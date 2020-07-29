@@ -3,11 +3,12 @@ import { GiphyFetch } from "@giphy/js-fetch-api";
 import { Grid } from "@giphy/react-components";
 import styles from "../index.css";
 import giphyicon from "../assets/GIPHY Logo 30px.png";
+import { giphyPropsType, gifsGridProps } from "../typing/propsType";
 
 const giphyKey = process.env.GIPHY_KEY;
 const giphyFetch = new GiphyFetch(giphyKey);
 
-const GridType = ({ onGifClick }): JSX.Element => {
+const GridType = ({ onGifClick }: gifsGridProps): JSX.Element => {
   const [word, setWord] = useState("rooster");
   const [width, setWidth] = useState(window.innerWidth);
 
@@ -47,7 +48,7 @@ const GridType = ({ onGifClick }): JSX.Element => {
   );
 };
 
-export default function Giphy(props: Record<string, any>): JSX.Element {
+export default function Giphy(props: giphyPropsType): JSX.Element {
   return (
     <>
       <GridType

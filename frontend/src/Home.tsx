@@ -3,12 +3,9 @@ import styles from "./index.css";
 import LeftPane from "./components/LeftPane";
 import RightPane from "./components/RightPane";
 import CenterPane from "./components/CenterPane";
+import { centerPropsType } from "./typing/propsType";
 
-type propsType = {
-  query: Record<string, unknown>;
-};
-
-function Home(props: propsType): JSX.Element {
+function Home(props: centerPropsType): JSX.Element {
   return (
     <div className={styles.pane_container}>
       <LeftPane />

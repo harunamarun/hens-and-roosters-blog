@@ -6,11 +6,9 @@ import UserIcon from "./UserIcon";
 import moment from "moment";
 import { useIntersection } from "use-intersection";
 import { PacmanLoader } from "halogenium";
+import { centerPropsType } from "../typing/propsType";
 
-type propsType = {
-  query: Record<string, unknown>;
-};
-export default function MyList(props: propsType): JSX.Element {
+export default function MyList(props: centerPropsType): JSX.Element {
   const [blogs, setBlogs] = useState([]);
   const [start, setStart] = useState(0);
   const [loading, setLoading] = useState(false);
