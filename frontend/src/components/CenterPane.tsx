@@ -5,6 +5,7 @@ import styles from "../index.css";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { centerPropsType } from "../typing/propsType";
+import BottomPane from "./BottomPane";
 
 export default function CenterPane(props: centerPropsType): JSX.Element {
   const query = props.query;
@@ -30,6 +31,7 @@ export default function CenterPane(props: centerPropsType): JSX.Element {
           <MyList query={query} />
         </>
       )}
+      <BottomPane />
     </div>
   );
 }

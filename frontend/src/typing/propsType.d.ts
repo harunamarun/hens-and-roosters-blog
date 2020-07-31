@@ -20,3 +20,8 @@ import { IGif } from "@giphy/js-types";
 export type gifsGridProps = {
   onGifClick: (gif: IGif, e: React.SyntheticEvent<HTMLElement, Event>) => void;
 };
+
+export type searchPropsType = {
+  modalIsOpen?: boolean;
+  setModalIsOpen?: Dispatch<SetStateAction<boolean>>;
+};

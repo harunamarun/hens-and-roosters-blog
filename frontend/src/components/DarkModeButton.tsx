@@ -13,14 +13,14 @@ export default function DarkModeButton(): JSX.Element {
           onClick={() => dispatch({ type: "LIGHT_MODE" })}
           icon={["fas", "sun"]}
           color={"#2AA1F2"}
-          className={styles.darkmode}
+          className={styles.menuicon}
         />
       ) : (
         <FontAwesomeIcon
           onClick={() => dispatch({ type: "DARK_MODE" })}
           icon={["fas", "moon"]}
           color={"#2AA1F2"}
-          className={styles.darkmode}
+          className={styles.menuicon}
         />
       )}
     </>

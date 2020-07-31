@@ -1,5 +1,5 @@
 :root {
-    --main-font-size:16px;
+    --main-font-size:1.2rem;
     --main-blue-color:#2AA1F2;
     --hover-blue-color:#1a91da;
     --hover-background-blue-color:#2AA1F21A;
@@ -24,7 +24,7 @@ body {
 
 h1 {
     margin-left: 4px;
-    font-size: 20px;
+    font-size: 1.5rem;
 }
 
 input {
@@ -39,14 +39,14 @@ input {
 }
 
 .left_pane {
-    min-width: 90px;
+    min-width: 55px;
     width: 5%;
     text-align: center;
 }
 .left_pane_items {
     position: sticky;
     top: 0;
-    padding: 9px;
+    padding: 10px 3px;
 }
 
 .center_pane {
@@ -54,7 +54,7 @@ input {
     flex-direction: column;
     max-width: 600px;
     min-width: 200px;
-    width: 70%;
+    width: 95%;
     min-height: 100vh;
 }
 .center_pane_head {
@@ -71,7 +71,7 @@ input {
     padding: 4px;
 }
 .btn_arrow {
-    font-size: 20px;
+    font-size: 1.2rem;
     padding: 8px 12px;
 }
 .btn_arrow:hover {
@@ -81,7 +81,25 @@ input {
 
 @media (max-width: 767px) {
     .left_pane {display: none;}
-    .center_pane{width: 100%;}
+    .center_pane {
+        width: 100%;
+    }
+    .bottom_pane {
+        position: sticky;
+        display: flex;
+        bottom:0px;
+        background: var(--main-background-color);
+        border: 1px solid var(--main-border-color);
+    }
+    .bottom_pane_items {
+        display: flex;
+        width:100%;
+        justify-content: space-around;
+    }
+}
+
+@media (min-width: 767px) {
+    .bottom_pane {display: none;}
 }
 
 @media (max-width:990px) {
@@ -125,13 +143,13 @@ input {
 
 }
 
-.darkmode {
-    font-size: var(--main-font-size);
+.menuicon {
+    font-size: 1.4rem;
     margin:10px;
     cursor:pointer;
     padding: 5px;
 }
-.darkmode:hover {
+.menuicon:hover {
     border-radius: 100%;
     background-color: var(--hover-background-blue-color);
 }
@@ -153,7 +171,7 @@ input {
     border: none;
     outline: none;
     width: 98%;
-    font-size: 20px;
+    font-size: 1.2rem;
     background: var(--main-background-color);
     font-family: "Helvetica Neue" , Helvetica , Arial , Verdana , Roboto , "游ゴシック" , "Yu Gothic" , "游ゴシック体" , "YuGothic" , "ヒラギノ角ゴ Pro W3" , "Hiragino Kaku Gothic Pro" , "Meiryo UI" , "メイリオ" , Meiryo , "ＭＳ Ｐゴシック" , "MS PGothic" , sans-serif;
 
@@ -184,7 +202,7 @@ input.form_input{
 }
 
 .btn_album {
-    font-size: 20px;
+    font-size: 1.5rem;
     cursor:pointer;
     padding: 5px;
 }
@@ -301,7 +319,7 @@ input.form_input{
 
 .detail_time {
     color: #657786;
-    font-size: 14px;
+    font-size: 1rem;
     margin: 3px 0;
 }
 
@@ -311,7 +329,7 @@ input.form_input{
 }
 .btn_edit {
     padding: 6px;
-    font-size: 18px;
+    font-size: 1.1rem;
     display: block;
     border: none;
     outline: none;
@@ -320,7 +338,7 @@ input.form_input{
 }
 .btn_delete {
     padding: 6px 9px;
-    font-size: 18px;
+    font-size: 1.1rem;
     display: block;
     border: none;
     outline: none;
@@ -364,7 +382,7 @@ input.form_input{
 }
 .news_head {
     font-weight: bold;
-    font-size: 18px;
+    font-size: 1.5rem;
     padding:9px 0;
 }
 .news_card {
@@ -377,7 +395,7 @@ a:link, a:visited, a:hover, a:active {
     text-decoration:none;
 }
 .news_publishedAt {
-    font-size: 11px;
+    font-size: 0.9rem;
     color: rgb(101, 119, 134);
 }
 
@@ -386,7 +404,7 @@ a:link, a:visited, a:hover, a:active {
     width: 100%;
 }
 .news_title {
-    font-size: 13px;
+    font-size: 1rem;
     font-weight: bolder;
     margin-right: 5px;
 }
@@ -414,5 +432,5 @@ a:link, a:visited, a:hover, a:active {
     background: none;
 }
 .search_icon{
-    font-size: 20px;
+    font-size: 1.2rem;
 }

@@ -11,6 +11,7 @@ import { RouteComponentProps } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link, useHistory } from "react-router-dom";
 import { PacmanLoader } from "halogenium";
+import BottomPane from "./BottomPane";
 
 type Props = RouteComponentProps<{ id: string }>;
 
@@ -119,6 +120,7 @@ export default function ItemDetail(props: Props): JSX.Element {
               {mainContent}
             </div>
           </div>
+          <BottomPane />
         </div>
         <RightPane />
       </div>
