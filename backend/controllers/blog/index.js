@@ -14,7 +14,7 @@ const multer = Multer({
   },
 });
 
-const bucket = storage.bucket("hens-and-roosters");
+const bucket = storage.bucket("hens-and-roosters-2");
 
 module.exports = (models) => {
   /*** Controller Logic ***/

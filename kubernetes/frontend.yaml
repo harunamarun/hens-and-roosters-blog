@@ -15,7 +15,7 @@ spec:
         app: frontend
     spec:
       containers:
-      - image: gcr.io/hens-and-roosters/frontend
+      - image: gcr.io/hens-and-roosters-2/frontend
         name: frontend
         resources:
             limits:

@@ -1,7 +1,9 @@
 */node_modules
 /tmp
 
-hens-and-roosters-c7b43570ea2e.json
+hens-and-roosters-2-18f8cf9474c7.json
+database_backup.txt
+
 .DS_Store
 
 yarn-debug.log*
