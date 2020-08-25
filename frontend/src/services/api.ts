@@ -1,5 +1,5 @@
 import { blogDict } from "../typing/blogType";
-import { getUserName } from "../utils";
+import getUserName from "../utils";
 
 const baseUrl = process.env.BACKEND_URL;
 

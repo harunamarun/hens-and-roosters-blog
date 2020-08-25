@@ -1,16 +1,16 @@
+import { useAuth0 } from "@auth0/auth0-react";
 import React, { useContext, useState, useEffect } from "react";
-import styles from "../index.css";
+import { Link } from "react-router-dom";
 import icon from "../assets/icon.png";
 import iconDark from "../assets/icon_dark.png";
-import { Link } from "react-router-dom";
-import { getUserName } from "../utils";
-import UserIcon from "./UserIcon";
+import styles from "../index.css";
+import { ThemeContext } from "../store/ThemeContext";
+import getUserName from "../utils";
+import DarkModeButton from "./DarkModeButton";
 import LoginButton from "./LoginButton";
 import LogoutButton from "./LogoutButton";
-import { useAuth0 } from "@auth0/auth0-react";
-import DarkModeButton from "./DarkModeButton";
-import { ThemeContext } from "../store/ThemeContext";
 import SearchButton from "./SearchButton";
+import UserIcon from "./UserIcon";
 
 export default function LeftPane(): JSX.Element {
   const username = getUserName();
@@ -20,17 +20,17 @@ export default function LeftPane(): JSX.Element {
 
   const home = (): JSX.Element => {
     return (
-      <Link to={"/"}>
+      <Link to="/">
         {state.isDark === "false" ? (
           <img
-            src={"/" + icon}
+            src={`/${icon}`}
             alt="icon"
             className={styles.main_icon}
             id="main_icon"
           />
         ) : (
           <img
-            src={"/" + iconDark}
+            src={`/${iconDark}`}
             alt="icon"
             className={styles.main_icon}
             id="main_icon"

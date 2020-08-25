@@ -1,16 +1,16 @@
-import React, { useState, useContext } from "react";
-import { createBlog } from "../services/api";
-import styles from "../index.css";
-import niwatorisound from "../assets/cock.mp3";
-import UserIcon from "./UserIcon";
-import { getUserName } from "../utils";
-import closeIcon from "../assets/close.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import Giphy from "./Giphy";
+import React, { useState, useContext } from "react";
+import Modal from "react-modal";
+import closeIcon from "../assets/close.png";
+import niwatorisound from "../assets/cock.mp3";
 import gificon from "../assets/gif.png";
 import gificonDis from "../assets/gifdis.png";
-import Modal from "react-modal";
+import styles from "../index.css";
+import { createBlog } from "../services/api";
 import { ThemeContext } from "../store/ThemeContext";
+import getUserName from "../utils";
+import Giphy from "./Giphy";
+import UserIcon from "./UserIcon";
 
 Modal.setAppElement("#root");
 
@@ -60,6 +60,8 @@ export default function Form(): JSX.Element {
     const icon = document.getElementById("main_icon");
     icon.classList.add(styles.onclick);
     audioElement.play();
+    // TODO: need to fix how to reload
+    // eslint-disable-next-line no-restricted-globals
     setTimeout(() => location.reload(), 2500);
   };
 
@@ -69,12 +71,12 @@ export default function Form(): JSX.Element {
         {previewImage ? (
           <FontAwesomeIcon
             icon={["far", "image"]}
-            color={"#86D0F9"}
+            color="#86D0F9"
             style={{ fontSize: "20px", padding: "5px" }}
           />
         ) : (
           <label htmlFor="input-file" className={styles.btn_album}>
-            <FontAwesomeIcon icon={["far", "image"]} color={"#2AA1F2"} />
+            <FontAwesomeIcon icon={["far", "image"]} color="#2AA1F2" />
             <input
               className={styles.form_input}
               type="file"
@@ -92,18 +94,18 @@ export default function Form(): JSX.Element {
     return (
       <>
         {previewImage ? (
-          <img src={gificonDis} width="20px" />
+          <img src={gificonDis} width="20px" alt="disable gif icon" />
         ) : (
-          <div className={styles.btn_gif}>
-            <img
-              src={gificon}
-              onClick={() => {
-                setModalIsOpen(true);
-                document.body.setAttribute("style", "overflow: hidden;");
-              }}
-              width="20px"
-            />
-          </div>
+          <button
+            className={styles.btn_gif}
+            type="button"
+            onClick={() => {
+              setModalIsOpen(true);
+              document.body.setAttribute("style", "overflow: hidden;");
+            }}
+          >
+            <img src={gificon} alt="gif icon" width="20px" />
+          </button>
         )}
       </>
     );
@@ -113,11 +115,16 @@ export default function Form(): JSX.Element {
     return (
       <>
         {content || previewImage ? (
-          <button className={styles.btn_post} onClick={postBlog}>
+          <button type="button" className={styles.btn_post} onClick={postBlog}>
             cock-a-doodle-doo
           </button>
         ) : (
-          <button disabled className={styles.btn_post} onClick={postBlog}>
+          <button
+            disabled
+            className={styles.btn_post}
+            onClick={postBlog}
+            type="button"
+          >
             cock-a-doodle-doo
           </button>
         )}
@@ -155,7 +162,6 @@ export default function Form(): JSX.Element {
         <UserIcon username={getUserName()} />
       </div>
       <div className={styles.right_side}>
-        <label htmlFor="comment"></label>
         <textarea
           className={styles.text_area}
           name="comment"
@@ -166,18 +172,26 @@ export default function Form(): JSX.Element {
         />
         {previewImage && (
           <div className={styles.form_img_preview}>
-            <img className={styles.form_img} src={previewImage} />
             <img
-              src={"/" + closeIcon}
+              alt="previewImage"
+              className={styles.form_img}
+              src={previewImage}
+            />
+            <button
+              type="button"
               onClick={cancelFile}
               className={styles.form_img_cancel}
-            />
+            >
+              <img alt="previewImage close icon" src={`/${closeIcon}`} />
+            </button>
           </div>
         )}
         <div className={styles.form_bottom}>
           {albumButton()}
           {gifButton()}
           {postButton()}
+          {/* This audio is just an effect. we do not need a caption. */}
+          {/* eslint-disable-next-line jsx-a11y/media-has-caption */}
           <audio src={niwatorisound} id="cock-audio" />
         </div>
         <Modal

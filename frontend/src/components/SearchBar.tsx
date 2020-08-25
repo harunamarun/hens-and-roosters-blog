@@ -1,7 +1,7 @@
-import React, { useState } from "react";
-import styles from "../index.css";
-import { useHistory, Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import React, { useState } from "react";
+import { useHistory, Link } from "react-router-dom";
+import styles from "../index.css";
 import { searchPropsType } from "../typing/propsType";
 
 export default function SearchBar(props: searchPropsType): JSX.Element {
@@ -35,7 +35,7 @@ export default function SearchBar(props: searchPropsType): JSX.Element {
         className={styles.search_icon}
         onClick={resetModal}
       >
-        <FontAwesomeIcon icon={["fas", "search"]} color={"#657786"} />
+        <FontAwesomeIcon icon={["fas", "search"]} color="#657786" />
       </Link>
     </div>
   );

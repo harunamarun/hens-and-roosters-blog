@@ -1,9 +1,9 @@
-import React, { useState, useContext } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import styles from "../index.css";
+import React, { useState, useContext } from "react";
 import Modal from "react-modal";
-import SearchBar from "./SearchBar";
+import styles from "../index.css";
 import { ThemeContext } from "../store/ThemeContext";
+import SearchBar from "./SearchBar";
 
 Modal.setAppElement("#root");
 
@@ -12,7 +12,6 @@ export default function SearchButton(): JSX.Element {
   const { state } = useContext(ThemeContext);
 
   const search = () => {
-    console.log("click");
     setModalIsOpen(true);
     document.body.setAttribute("style", "overflow: hidden;");
   };
@@ -42,7 +41,7 @@ export default function SearchButton(): JSX.Element {
       <FontAwesomeIcon
         onClick={search}
         icon={["fas", "search"]}
-        color={"#2AA1F2"}
+        color="#2AA1F2"
         className={styles.menuicon}
       />
       <Modal

@@ -1,6 +1,6 @@
-import React from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useAuth0 } from "@auth0/auth0-react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import React from "react";
 import styles from "../index.css";
 
 const LoginButton = (): JSX.Element => {
@@ -10,7 +10,7 @@ const LoginButton = (): JSX.Element => {
     <FontAwesomeIcon
       onClick={() => loginWithRedirect()}
       icon={["fas", "sign-in-alt"]}
-      color={"#2AA1F2"}
+      color="#2AA1F2"
       className={styles.menuicon}
     />
   );

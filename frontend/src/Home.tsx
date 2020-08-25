@@ -1,15 +1,16 @@
 import React from "react";
-import styles from "./index.css";
+import CenterPane from "./components/CenterPane";
 import LeftPane from "./components/LeftPane";
 import RightPane from "./components/RightPane";
-import CenterPane from "./components/CenterPane";
+import styles from "./index.css";
 import { centerPropsType } from "./typing/propsType";
 
 function Home(props: centerPropsType): JSX.Element {
+  const { query } = props;
   return (
     <div className={styles.pane_container}>
       <LeftPane />
-      <CenterPane query={props.query} />
+      <CenterPane query={query} />
       <RightPane />
     </div>
   );

@@ -1,17 +1,16 @@
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { PacmanLoader } from "halogenium";
+import moment from "moment";
 import React, { useEffect, useState } from "react";
-import { getBlogById, updateBlog } from "../services/api";
-import ItemBottomBar from "./ItemBottomBar";
+import { RouteComponentProps, Link, useHistory } from "react-router-dom";
 import styles from "../index.css";
+import { getBlogById, updateBlog } from "../services/api";
+import getUserName from "../utils";
+import BottomPane from "./BottomPane";
+import ItemBottomBar from "./ItemBottomBar";
 import LeftPane from "./LeftPane";
 import RightPane from "./RightPane";
-import moment from "moment";
 import UserIcon from "./UserIcon";
-import { getUserName } from "../utils";
-import { RouteComponentProps } from "react-router-dom";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Link, useHistory } from "react-router-dom";
-import { PacmanLoader } from "halogenium";
-import BottomPane from "./BottomPane";
 
 type Props = RouteComponentProps<{ id: string }>;
 
@@ -26,7 +25,8 @@ export default function ItemDetail(props: Props): JSX.Element {
     updatedAt: undefined,
     createdAt: undefined,
   });
-  const id = props.match.params.id;
+  const { match } = props;
+  const { id } = match.params;
   const [updateStateFlag, setUpdateStateFlag] = useState(false);
   const [content, setContent] = useState("");
   const history = useHistory();
@@ -52,7 +52,6 @@ export default function ItemDetail(props: Props): JSX.Element {
 
   const mainContent = updateStateFlag ? (
     <>
-      <label htmlFor="recomment"></label>
       <textarea
         className={styles.text_area}
         name="recomment"
@@ -62,6 +61,7 @@ export default function ItemDetail(props: Props): JSX.Element {
       />
       <div className={styles.edit}>
         <button
+          type="button"
           className={styles.btn_post}
           onClick={() => {
             updateBlog(id, content).then(() => history.goBack());
@@ -75,7 +75,11 @@ export default function ItemDetail(props: Props): JSX.Element {
     <>
       <div className={styles.detail_content}>{blog.content}</div>
       {url && (
-        <img src={url} style={{ height: "200px", borderRadius: "20px" }} />
+        <img
+          src={url}
+          style={{ height: "200px", borderRadius: "20px" }}
+          alt="content"
+        />
       )}
       <div className={styles.detail_time}>
         posted at:{" "}
@@ -101,13 +105,13 @@ export default function ItemDetail(props: Props): JSX.Element {
   );
 
   return (
-    <React.Fragment>
+    <>
       <div className={styles.pane_container}>
         <LeftPane />
         <div className={styles.center_pane}>
           <div className={styles.center_pane_head}>
-            <Link className={styles.btn_arrow} to={"/"}>
-              <FontAwesomeIcon icon={["fas", "arrow-left"]} color={"#2AA1F2"} />
+            <Link className={styles.btn_arrow} to="/">
+              <FontAwesomeIcon icon={["fas", "arrow-left"]} color="#2AA1F2" />
             </Link>
             <h1>cock-a-doodle-doo</h1>
           </div>
@@ -124,6 +128,6 @@ export default function ItemDetail(props: Props): JSX.Element {
         </div>
         <RightPane />
       </div>
-    </React.Fragment>
+    </>
   );
 }

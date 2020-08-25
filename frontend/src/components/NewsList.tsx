@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from "react";
-import { getNewsHeadline } from "../services/api";
-import styles from "../index.css";
 import moment from "moment";
+import React, { useState, useEffect } from "react";
+import styles from "../index.css";
+import { getNewsHeadline } from "../services/api";
 
 export default function NewsList(): JSX.Element {
   const [news, setNews] = useState([]);
@@ -27,6 +27,7 @@ export default function NewsList(): JSX.Element {
               <p className={styles.news_title}>{item.name}</p>
               {item.image.thumbnail.contentUrl && (
                 <img
+                  alt="newsimage"
                   src={item.image.thumbnail.contentUrl}
                   style={{ height: "50px", borderRadius: "10px" }}
                 />

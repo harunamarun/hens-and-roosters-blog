@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from "react";
 import { GiphyFetch } from "@giphy/js-fetch-api";
 import { Grid } from "@giphy/react-components";
-import styles from "../index.css";
+import React, { useState, useEffect } from "react";
 import giphyicon from "../assets/GIPHY Logo 30px.png";
+import styles from "../index.css";
 import { giphyPropsType, gifsGridProps } from "../typing/propsType";
 
 const giphyKey = process.env.GIPHY_KEY;
@@ -25,7 +25,7 @@ const GridType = ({ onGifClick }: gifsGridProps): JSX.Element => {
   }, []);
   return (
     <>
-      <img src={giphyicon} />
+      <img src={giphyicon} alt="giphy icon" />
       <div className={styles.giphy_search_bar}>
         <input
           className={styles.search_input}

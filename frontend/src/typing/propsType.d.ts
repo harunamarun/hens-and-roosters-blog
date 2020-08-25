@@ -1,3 +1,4 @@
+import { IGif } from "@giphy/js-types";
 import { ParsedQuery } from "query-string";
 import { Dispatch, SetStateAction } from "react";
 
@@ -14,8 +15,6 @@ export type giphyPropsType = {
   setPreviewImage: Dispatch<SetStateAction<string>>;
   setModalIsOpen: Dispatch<SetStateAction<boolean>>;
 };
-
-import { IGif } from "@giphy/js-types";
 
 export type gifsGridProps = {
   onGifClick: (gif: IGif, e: React.SyntheticEvent<HTMLElement, Event>) => void;

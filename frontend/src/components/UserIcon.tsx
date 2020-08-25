@@ -8,8 +8,17 @@ import usericon5 from "../assets/usericon5.jpg";
 import styles from "../index.css";
 import { userIconProps } from "../typing/propsType";
 
+const hashName = (str) => {
+  let sum = 0;
+  for (let i = 0; i < str.length; i += 1) {
+    sum += str.charCodeAt(i);
+  }
+  return sum;
+};
+
 export default function UserIcon(props: userIconProps): JSX.Element {
-  const num = hashName(props.username) % 6;
+  const { username } = props;
+  const num = hashName(username) % 6;
   const iconArray = [
     usericon0,
     usericon1,
@@ -21,17 +30,9 @@ export default function UserIcon(props: userIconProps): JSX.Element {
   return (
     <img
       className={styles.profile_img}
-      src={"/" + iconArray[num]}
+      src={`/${iconArray[num]}`}
       alt="icon"
       width="50px"
     />
   );
 }
-
-const hashName = (str) => {
-  let sum = 0;
-  for (let i = 0; i < str.length; i++) {
-    sum += str.charCodeAt(i);
-  }
-  return sum;
-};

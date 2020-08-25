@@ -189,6 +189,9 @@ input {
 .form_img_cancel {
     position:absolute;
     z-index: 2;
+    border: none;
+    outline: none;
+    background: none;
 }
 
 input.form_input{
@@ -214,6 +217,10 @@ input.form_input{
     cursor:pointer;
     padding: 5px;
     padding-top:7px;
+    border: none;
+    outline: none;
+    background: none;
+
 }
 .btn_gif:hover {
     border-radius: 100%;

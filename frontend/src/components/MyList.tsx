@@ -1,19 +1,19 @@
-import React, { useState, useEffect, useRef } from "react";
-import { getBlogs } from "../services/api";
-import { Link } from "react-router-dom";
-import styles from "../index.css";
-import UserIcon from "./UserIcon";
-import moment from "moment";
-import { useIntersection } from "use-intersection";
 import { PacmanLoader } from "halogenium";
+import moment from "moment";
+import React, { useState, useEffect, useRef } from "react";
+import { Link } from "react-router-dom";
+import { useIntersection } from "use-intersection";
+import styles from "../index.css";
+import { getBlogs } from "../services/api";
 import { centerPropsType } from "../typing/propsType";
+import UserIcon from "./UserIcon";
 
 export default function MyList(props: centerPropsType): JSX.Element {
   const [blogs, setBlogs] = useState([]);
   const [start, setStart] = useState(0);
   const [loading, setLoading] = useState(false);
   const [end, setEnd] = useState(false);
-  const query = props.query;
+  const { query } = props;
   const limit = 20;
 
   const target = useRef<HTMLDivElement>(null);
@@ -36,11 +36,11 @@ export default function MyList(props: centerPropsType): JSX.Element {
   }, [intersecting]);
 
   return (
-    <React.Fragment>
+    <>
       {blogs.map((item) => {
         return (
           <Link
-            to={"/post/" + item.id}
+            to={`/post/${item.id}`}
             key={item.id}
             style={{ textDecoration: "none", color: "#14171A" }}
           >
@@ -57,6 +57,7 @@ export default function MyList(props: centerPropsType): JSX.Element {
                 {item.imageURL && (
                   <div className={styles.list_image}>
                     <img
+                      alt="postedimage"
                       src={item.imageURL}
                       style={{
                         height: "200px",
@@ -68,6 +69,7 @@ export default function MyList(props: centerPropsType): JSX.Element {
                 {item.gifURL && (
                   <div className={styles.list_image}>
                     <img
+                      alt="postedgif"
                       src={item.gifURL}
                       style={{
                         height: "200px",
@@ -88,6 +90,6 @@ export default function MyList(props: centerPropsType): JSX.Element {
           </div>
         )}
       </div>
-    </React.Fragment>
+    </>
   );
 }

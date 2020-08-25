@@ -1,22 +1,22 @@
+import { useAuth0 } from "@auth0/auth0-react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
-import styles from "../index.css";
 import { Link } from "react-router-dom";
+import styles from "../index.css";
+import DarkModeButton from "./DarkModeButton";
 import LoginButton from "./LoginButton";
 import LogoutButton from "./LogoutButton";
-import { useAuth0 } from "@auth0/auth0-react";
-import DarkModeButton from "./DarkModeButton";
 import SearchButton from "./SearchButton";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export default function BottomPane(): JSX.Element {
   const { user } = useAuth0();
 
   const home = (): JSX.Element => {
     return (
-      <Link to={"/"}>
+      <Link to="/">
         <FontAwesomeIcon
           icon={["fas", "home"]}
-          color={"#2AA1F2"}
+          color="#2AA1F2"
           className={styles.menuicon}
         />
       </Link>

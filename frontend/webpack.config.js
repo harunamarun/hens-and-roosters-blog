@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
-const HtmlWebpackPlugin = require("html-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 const webpack = require("webpack");
 
 module.exports = {
@@ -40,7 +40,17 @@ module.exports = {
 
       {
         test: /\.css$/,
-        loaders: ["style-loader", "css-loader?modules"],
+        use: [
+          "style-loader",
+          {
+            loader: "css-loader?modules",
+            options: {
+              modules: {
+                localIdentName: "[name]-[local]-[hash:base64:5]",
+              },
+            },
+          },
+        ],
       },
     ],
   },

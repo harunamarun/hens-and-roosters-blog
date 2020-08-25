@@ -1,14 +1,14 @@
-import Home from "./Home";
+import { Auth0Provider } from "@auth0/auth0-react";
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { fab } from "@fortawesome/free-brands-svg-icons";
+import { far } from "@fortawesome/free-regular-svg-icons";
+import { fas } from "@fortawesome/free-solid-svg-icons";
+import queryString from "query-string";
 import React from "react";
 import * as ReactDOM from "react-dom";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
+import Home from "./Home";
 import ItemDetail from "./components/ItemDetail";
-import { Auth0Provider } from "@auth0/auth0-react";
-import queryString from "query-string";
-import { library } from "@fortawesome/fontawesome-svg-core";
-import { fab } from "@fortawesome/free-brands-svg-icons";
-import { fas } from "@fortawesome/free-solid-svg-icons";
-import { far } from "@fortawesome/free-regular-svg-icons";
 import { StateProvider } from "./store/ThemeContext";
 
 library.add(fab, fas, far);
