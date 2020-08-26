@@ -15,7 +15,7 @@ export const getBlogs = (
   return fetch(url).then((request) => request.json());
 };
 
-export const getBlogById = (id: number): Promise<blogDict> =>
+export const getBlogById = (id: string): Promise<blogDict> =>
   fetch(`${baseUrl}/api/blogs/${id}`).then((request) => request.json());
 
 export const createBlog = (
@@ -40,7 +40,7 @@ export const createBlog = (
     .catch((error) => console.error(error));
 };
 
-export const deleteBlog = (id: number): Promise<string | void> => {
+export const deleteBlog = (id: string): Promise<string | void> => {
   return fetch(`${baseUrl}/api/blogs/${id}`, {
     method: "DELETE",
     headers: {
@@ -52,7 +52,7 @@ export const deleteBlog = (id: number): Promise<string | void> => {
 };
 
 export const updateBlog = (
-  id: number,
+  id: string,
   content: string
 ): Promise<Response | void> => {
   return fetch(`${baseUrl}/api/blogs/${id}`, {

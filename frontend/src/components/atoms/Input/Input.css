@@ -1,0 +1,10 @@
+.text_area {
+    color: var(--main-text-color);
+    resize: none;
+    border: none;
+    outline: none;
+    width: 100%;
+    font-size: 1.2rem;
+    background: var(--main-background-color);
+    font-family: "Helvetica Neue" , Helvetica , Arial , Verdana , Roboto , "游ゴシック" , "Yu Gothic" , "游ゴシック体" , "YuGothic" , "ヒラギノ角ゴ Pro W3" , "Hiragino Kaku Gothic Pro" , "Meiryo UI" , "メイリオ" , Meiryo , "ＭＳ Ｐゴシック" , "MS PGothic" , sans-serif;
+}

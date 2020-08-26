@@ -1,0 +1,30 @@
+.bottombar {
+    display: flex;
+}
+.btn_edit {
+    padding: 6px 7px;
+    font-size: 1.1rem;
+    display: block;
+    border: none;
+    outline: none;
+    background: none;
+    cursor:pointer;
+}
+.btn_edit:hover {
+    border-radius: 100%;
+    background-color: var(--hover-background-blue-color);
+}
+
+.btn_delete {
+    padding: 6px 7px;
+    font-size: 1.1rem;
+    display: block;
+    border: none;
+    outline: none;
+    background: none;
+    cursor:pointer;
+}
+.btn_delete:hover {
+    border-radius: 100%;
+    background-color: var(--hover-background-blue-color);
+}

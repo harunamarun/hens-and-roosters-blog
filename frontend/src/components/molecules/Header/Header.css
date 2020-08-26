@@ -1,0 +1,13 @@
+.center_header {
+    display: flex;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    height: 50px;
+    background: var(--main-background-color);
+    z-index: 10;
+    border-left: 1px solid var(--main-border-color);
+    border-right: 1px solid var(--main-border-color);
+    border-bottom: 1px solid var(--main-border-color);
+    padding: 4px;
+}

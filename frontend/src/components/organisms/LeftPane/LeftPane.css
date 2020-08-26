@@ -1,0 +1,10 @@
+.items {
+    position: sticky;
+    top: 0;
+    padding: 10px 3px;
+}
+
+.nickname {
+    padding: 2px;
+    word-wrap: break-word;
+}

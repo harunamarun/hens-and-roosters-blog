@@ -1,0 +1,14 @@
+.home_icon {
+    width: 40px;
+    transition-duration: 2.5s;
+    transform: rotateY(0deg);
+    margin-bottom: 15px;
+}
+.home_icon.onclick {
+    transform: rotateY(1080deg);
+}
+
+.profile_img {
+    border-radius: 100%;
+    width: 42px;
+}

@@ -1,0 +1,27 @@
+
+.left_side {
+    margin-right: 8px;
+    margin-left: 4px;
+    width: 42px;
+    flex-basis: auto;
+}
+
+.right_side {
+    position: relative;
+    margin-top: 0;
+    width:calc(100% - 54px);
+    overflow: hidden;
+}
+
+.username {
+    display: inline;
+    font-weight: bolder;
+    margin: 115px 0;
+    font-size: var(--main-font-size);
+
+}
+
+.time {
+    display: inline;
+    margin-left:5px;
+}

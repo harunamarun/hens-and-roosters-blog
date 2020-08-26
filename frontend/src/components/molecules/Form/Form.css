@@ -1,0 +1,60 @@
+input.form_input{
+    display: none;
+}
+
+.form_area {
+    display: flex;
+    padding: 12px 12px 6px 12px;
+    border-bottom: 10px solid var(--main-border-color);
+    border-left: 1px solid var(--main-border-color);
+    border-right: 1px solid var(--main-border-color);
+}
+
+.img_container {
+    display: flex;
+    margin: 5px;
+}
+
+.img_cancel {
+    position:absolute;
+    z-index: 2;
+    border: none;
+    outline: none;
+    background: none;
+}
+
+.bottom_container {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 34px;
+}
+
+.btn_album {
+    font-size: 1.5rem;
+    cursor:pointer;
+    padding: 5px;
+}
+.btn_album:hover {
+    border-radius: 100%;
+    background-color: var(--hover-background-blue-color);
+}
+
+.btn_gif {
+    cursor:pointer;
+    padding: 5px;
+    padding-top:7px;
+    border: none;
+    outline: none;
+    background: none;
+
+}
+.btn_gif:hover {
+    border-radius: 100%;
+    background-color: var(--hover-background-blue-color);
+}
+
+.post_container {
+    right: 0px;
+    position: absolute;
+}

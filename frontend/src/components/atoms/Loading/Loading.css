@@ -1,0 +1,4 @@
+.loading {
+    margin: 10px;
+    padding-left: calc(50% - 32px);
+}

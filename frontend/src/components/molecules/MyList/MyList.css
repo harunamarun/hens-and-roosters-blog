@@ -1,0 +1,29 @@
+.card {
+    text-decoration: none;
+    display: flex;
+    padding: 10px;
+    border-bottom: 1px solid var(--main-border-color);
+    border-left: 1px solid var(--main-border-color);
+    border-right: 1px solid var(--main-border-color);
+}
+
+.content {
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    margin: 3px 0;
+    font-size: var(--main-font-size);
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    white-space: pre-wrap;
+}
+
+.image_container {
+    text-align: center;
+    position: relative;
+    background: var(--main-background-color);
+}
+
+.loading_container {
+    text-align: center;
+}

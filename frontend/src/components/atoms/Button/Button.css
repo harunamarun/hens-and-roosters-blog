@@ -1,0 +1,40 @@
+.btn_arrow {
+    font-size: 1.3rem;
+    padding: 8px 12px;
+}
+.btn_arrow:hover {
+    border-radius: 100%;
+    background-color: var(--hover-background-blue-color);
+}
+
+.btn_default {
+    display: block;
+    border: none;
+    outline: none;
+    padding: 8px 20px;
+    border-radius: 90px;
+    color: #FFF;
+    transition: .4s;
+    background-color: var(--main-blue-color);
+    font-weight: bold;
+    cursor:pointer;
+}
+.btn_default:hover {
+    background-color: #1a91da;
+}
+.btn_default:disabled {
+    background-color: var(--disabled-blue-color);
+}
+
+.menuicon {
+    font-size: 1.4rem;
+    margin:10px;
+    cursor:pointer;
+    padding: 5px;
+}
+.menuicon:hover {
+    border-radius: 100%;
+    background-color: var(--hover-background-blue-color);
+}
+
+
