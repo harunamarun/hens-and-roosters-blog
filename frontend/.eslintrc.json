@@ -80,7 +80,8 @@
                     ".ts",
                     ".tsx",
                     ".json",
-                    ".d.ts"
+                    ".d.ts",
+                    ".stories.tsx"
                 ]
             }
         }
