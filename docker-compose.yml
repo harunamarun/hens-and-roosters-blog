@@ -19,7 +19,7 @@ services:
     tty: true
     stdin_open: true
     volumes:
-      - ./backend/hens-and-roosters-c7b43570ea2e.json:/tmp/secret.json
+      - ./backend/hens-and-roosters-2-18f8cf9474c7.json:/tmp/secret.json
     environment:
         DB_HOST: db
         DB_USER: "postgres"
@@ -38,6 +38,7 @@ services:
       BACKEND_URL: http://localhost:3000
       AZURE_KEY: ${AZURE_KEY}
       GIPHY_KEY: ${GIPHY_KEY}
+      NEWS_URL: ${NEWS_URL}
   test:
     image: backend
     build: ./backend

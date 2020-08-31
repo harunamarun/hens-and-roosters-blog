@@ -8,9 +8,9 @@ import styles from "./icons.css";
 export default function HomeIcon(): JSX.Element {
   const { state } = useContext(ThemeContext);
 
-  let src = `/${icon}`;
+  let src = `${icon}`;
   if (state.isDark === "true") {
-    src = `/${iconDark}`;
+    src = `${iconDark}`;
   }
 
   return (

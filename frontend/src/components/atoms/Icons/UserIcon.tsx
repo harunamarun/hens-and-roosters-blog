@@ -33,7 +33,7 @@ export default function UserIcon(props: userIconProps): JSX.Element {
   return (
     <img
       className={styles.profile_img}
-      src={`/${iconArray[num]}`}
+      src={`${iconArray[num]}`}
       alt="icon"
       width="50px"
     />

@@ -167,7 +167,7 @@ export default function Form(): JSX.Element {
                 onClick={cancelFile}
                 className={styles.img_cancel}
               >
-                <img alt="previewImage close icon" src={`/${closeIcon}`} />
+                <img alt="previewImage close icon" src={`${closeIcon}`} />
               </button>
             </div>
           )}

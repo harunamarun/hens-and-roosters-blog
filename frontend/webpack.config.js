@@ -8,6 +8,7 @@ module.exports = {
   entry: "./src/index.tsx",
   output: {
     path: `${__dirname}/dist`,
+    publicPath: "/",
     filename: "main.js",
   },
   module: {

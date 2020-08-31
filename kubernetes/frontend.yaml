@@ -19,8 +19,8 @@ spec:
         name: frontend
         resources:
             limits:
-              memory: "500Mi"
-              cpu: "0.5"
+              memory: "1500Mi"
+              cpu: "1.0"
             requests:
               memory: "500Mi"
               cpu: "0.5"
@@ -37,6 +37,9 @@ spec:
               secretKeyRef:
                 name: api-key-secret
                 key: giphy_key
+          - name: NEWS_URL
+            value: "https://hensandroosters.cognitiveservices.azure.com/bing/v7.0/news"
+
 
 ---
 apiVersion: v1
