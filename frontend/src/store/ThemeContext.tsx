@@ -13,6 +13,14 @@ type ContextType = {
   dispatch: React.Dispatch<ActionType>;
 };
 
+type ColorSetType = {
+  backgroundColor: string;
+  disabledColor: string;
+  borderColor: string;
+  subBackgroundColor: string;
+  textColor: string;
+};
+
 const elementStyle = document.documentElement.style;
 
 const setTheme = ({
@@ -21,7 +29,7 @@ const setTheme = ({
   borderColor,
   subBackgroundColor,
   textColor,
-}) => {
+}: ColorSetType): void => {
   elementStyle.setProperty("--main-background-color", backgroundColor);
   elementStyle.setProperty("--disabled-blue-color", disabledColor);
   elementStyle.setProperty("--main-border-color", borderColor);
@@ -29,7 +37,7 @@ const setTheme = ({
   elementStyle.setProperty("--main-text-color", textColor);
 };
 
-const setLightTheme = () => {
+const setLightTheme = (): void => {
   setTheme({
     backgroundColor: "#FFFFFF",
     disabledColor: "#86D0F9",
@@ -39,7 +47,7 @@ const setLightTheme = () => {
   });
 };
 
-const setDarkTheme = () => {
+const setDarkTheme = (): void => {
   setTheme({
     backgroundColor: "#16202B",
     disabledColor: "#1A608E",
@@ -63,6 +71,7 @@ if (localIsDarkMode === "true") {
 } else {
   setLightTheme();
 }
+
 const reducer = (state: StateType, action: ActionType): StateType => {
   switch (action.type) {
     case "DARK_MODE":

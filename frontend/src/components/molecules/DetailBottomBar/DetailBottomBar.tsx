@@ -1,7 +1,7 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 import { useHistory } from "react-router-dom";
-import { deleteBlog } from "../../../services/api";
+import { deleteBlog } from "../../../utils/api";
 import styles from "./DetailBottomBar.css";
 
 type propsType = {

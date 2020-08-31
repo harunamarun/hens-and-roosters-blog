@@ -8,6 +8,7 @@ import styles from "./Button.css";
 type PropsType = FontAwesomeIconProps & {
   onClick?: () => void;
 };
+
 const MenuIconButton = (props: PropsType): JSX.Element => {
   const { onClick, icon, color = "#2AA1F2" } = props;
 

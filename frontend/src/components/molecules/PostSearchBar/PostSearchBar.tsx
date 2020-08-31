@@ -28,6 +28,8 @@ export default function PostSearchBar(props: PropsType): JSX.Element {
         placeholder="Search cock-a-doodle-doos"
         onChange={(e) => setKeyword(e.target.value)}
         onKeyDown={(e) => {
+          // 13 of keyCode is keybord's Enter.
+          // When keybord's Enter is pressed, it behave the same search button.
           if (e.keyCode === 13) {
             history.push(`/?keyword=${keyword}`);
             resetModal();

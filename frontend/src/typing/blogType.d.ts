@@ -1,10 +1,9 @@
-export type blogDict = {
+export type BlogType = {
   name: string;
   id: number;
   content: string;
   imageURL: string;
   gifURL: string;
-  favers: string[];
-  createdAt: Date;
-  updatedAt: Date;
+  createdAt: string;
+  updatedAt: string;
 };

@@ -8,23 +8,14 @@ import styles from "./icons.css";
 export default function HomeIcon(): JSX.Element {
   const { state } = useContext(ThemeContext);
 
+  let src = `/${icon}`;
+  if (state.isDark === "true") {
+    src = `/${iconDark}`;
+  }
+
   return (
     <Link to="/">
-      {state.isDark === "false" ? (
-        <img
-          src={`/${icon}`}
-          alt="icon"
-          className={styles.home_icon}
-          id="main_icon"
-        />
-      ) : (
-        <img
-          src={`/${iconDark}`}
-          alt="icon"
-          className={styles.home_icon}
-          id="main_icon"
-        />
-      )}
+      <img src={src} alt="icon" className={styles.home_icon} id="main_icon" />
     </Link>
   );
 }

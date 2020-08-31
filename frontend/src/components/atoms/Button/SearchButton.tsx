@@ -7,7 +7,7 @@ import MenuIconButton from "./MenuIconButton";
 Modal.setAppElement("#root");
 
 export default function SearchButton(): JSX.Element {
-  const [modalIsOpen, setModalIsOpen] = useState(false);
+  const [modalIsOpen, setModalIsOpen] = useState<boolean>(false);
   const { state } = useContext(ThemeContext);
 
   const search = () => {

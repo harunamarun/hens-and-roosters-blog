@@ -5,9 +5,9 @@ import closeIcon from "../../../assets/close.png";
 import niwatorisound from "../../../assets/cock.mp3";
 import gificon from "../../../assets/gif.png";
 import gificonDis from "../../../assets/gifdis.png";
-import { createBlog } from "../../../services/api";
 import { ThemeContext } from "../../../store/ThemeContext";
-import getUserName from "../../../utils";
+import { createBlog } from "../../../utils/api";
+import getUserName from "../../../utils/utils";
 import DefaultButton from "../../atoms/Button/DefaultButton";
 import Img from "../../atoms/Img/Img";
 import Textarea from "../../atoms/Input/Textarea";
@@ -25,7 +25,7 @@ export default function Form(): JSX.Element {
   const [gifURL, setGifURL] = useState<string>("");
   const [modalIsOpen, setModalIsOpen] = useState<boolean>(false);
 
-  const handleImageInput = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleImageInput = (e: React.ChangeEvent<HTMLInputElement>): void => {
     const file = e.target.files[0];
     setImageFile(file);
 
@@ -33,26 +33,21 @@ export default function Form(): JSX.Element {
     if (file) {
       reader.readAsDataURL(file);
     }
-    reader.onload = () => {
+    reader.onload = (): void => {
       if (typeof reader.result === "string") {
         setPreviewImage(reader.result);
       }
     };
-
-    const inputElement: HTMLInputElement = document.getElementById(
-      "input-file"
-    ) as HTMLInputElement;
-    inputElement.value = "";
   };
 
-  const cancelFile = () => {
+  const cancelFile = (): void => {
     setImageFile(null);
     setPreviewImage(null);
     setGifURL("");
   };
 
-  const postBlog = () => {
-    createBlog(content, imageFile, gifURL);
+  const postBlog = (): void => {
+    createBlog(content, imageFile, gifURL).catch((err) => err.message);
     setContent("");
     setImageFile(null);
     setPreviewImage(null);
@@ -69,7 +64,7 @@ export default function Form(): JSX.Element {
     setTimeout(() => location.reload(), 2500);
   };
 
-  const albumButton = () => {
+  const albumButton = (): JSX.Element => {
     return (
       <>
         {previewImage ? (
@@ -94,7 +89,7 @@ export default function Form(): JSX.Element {
     );
   };
 
-  const gifButton = () => {
+  const gifButton = (): JSX.Element => {
     return (
       <>
         {previewImage ? (
@@ -115,7 +110,7 @@ export default function Form(): JSX.Element {
     );
   };
 
-  const postButton = () => {
+  const postButton = (): JSX.Element => {
     return (
       <div className={styles.post_container}>
         {content || previewImage ? (

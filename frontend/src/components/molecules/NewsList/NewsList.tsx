@@ -1,14 +1,16 @@
 import moment from "moment";
 import React, { useState, useEffect } from "react";
-import { getNewsHeadline } from "../../../services/api";
+import { NewsType } from "../../../typing/newsType";
+import { getNewsHeadline } from "../../../utils/api";
 import styles from "./NewsList.css";
 
 export default function NewsList(): JSX.Element {
-  const [news, setNews] = useState([]);
+  const [news, setNews] = useState<NewsType[]>(null);
 
   useEffect(() => {
     getNewsHeadline().then((res) => res && setNews(res.slice(0, 5)));
   }, []);
+
   return (
     <div className={styles.news_container}>
       <div className={styles.header}>What&#39;s happening</div>
@@ -25,10 +27,10 @@ export default function NewsList(): JSX.Element {
               rel="noreferrer"
             >
               <p className={styles.title}>{item.name}</p>
-              {item.image.thumbnail.contentUrl && (
+              {item.imageURL && (
                 <img
                   alt="newsimage"
-                  src={item.image.thumbnail.contentUrl}
+                  src={item.imageURL}
                   className={styles.image}
                 />
               )}

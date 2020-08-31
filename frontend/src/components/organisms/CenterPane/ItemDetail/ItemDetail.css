@@ -7,28 +7,3 @@
     border-right: 1px solid var(--main-border-color);
     font-size: var(--main-font-size);
 }
-
-.content {
-    overflow-wrap: break-word;
-    word-wrap: break-word;
-    margin: 5px 0;
-    font-size: var(--main-font-size);
-    white-space: pre-wrap;
-
-}
-
-.bottom_container {
-    height: 34px;
-}
-
-.post_container {
-    right: 0px;
-    position: absolute;
-}
-
-.time {
-    color: #657786;
-    font-size: 1rem;
-    margin: 3px 0;
-}
-

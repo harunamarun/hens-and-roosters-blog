@@ -14,7 +14,7 @@
     padding: 8px 20px;
     border-radius: 90px;
     color: #FFF;
-    transition: .4s;
+    transition: .2s;
     background-color: var(--main-blue-color);
     font-weight: bold;
     cursor:pointer;

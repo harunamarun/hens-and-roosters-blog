@@ -62,8 +62,17 @@ module.exports = {
       template: `${__dirname}/src/index.html`,
     }),
     new CleanWebpackPlugin(),
-    new webpack.EnvironmentPlugin(["BACKEND_URL", "AZURE_KEY", "GIPHY_KEY"]),
+    new webpack.EnvironmentPlugin([
+      "BACKEND_URL",
+      "AZURE_KEY",
+      "GIPHY_KEY",
+      "NEWS_URL",
+    ]),
   ],
+  performance: {
+    maxEntrypointSize: 2500000,
+    maxAssetSize: 2500000,
+  },
   devServer: {
     contentBase: `${__dirname}/dist`,
     compress: true,

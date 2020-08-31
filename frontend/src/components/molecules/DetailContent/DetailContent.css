@@ -1,0 +1,14 @@
+.content {
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    margin: 5px 0;
+    font-size: var(--main-font-size);
+    white-space: pre-wrap;
+}
+
+.time {
+    color: #657786;
+    font-size: 1rem;
+    margin: 3px 0;
+}
+

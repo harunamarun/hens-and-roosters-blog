@@ -1,6 +1,6 @@
 import { useAuth0 } from "@auth0/auth0-react";
 import React, { useState, useEffect } from "react";
-import getUserName from "../../../utils";
+import getUserName from "../../../utils/utils";
 import DarkModeButton from "../../atoms/Button/DarkModeButton";
 import LoginOutButton from "../../atoms/Button/LogInOutButton";
 import SearchButton from "../../atoms/Button/SearchButton";

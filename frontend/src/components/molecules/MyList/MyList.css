@@ -23,7 +23,3 @@
     position: relative;
     background: var(--main-background-color);
 }
-
-.loading_container {
-    text-align: center;
-}

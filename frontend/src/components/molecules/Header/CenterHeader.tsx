@@ -11,14 +11,8 @@ export default function CenterHeader(props: PropsType): JSX.Element {
   const { backButton, children } = props;
   return (
     <div className={styles.center_header}>
-      {backButton ? (
-        <>
-          <BackButton />
-          <h1>{children}</h1>
-        </>
-      ) : (
-        <h1>{children}</h1>
-      )}
+      {backButton && <BackButton />}
+      <h1>{children}</h1>
     </div>
   );
 }
