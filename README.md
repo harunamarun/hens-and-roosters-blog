@@ -1,7 +1,5 @@
 # :chicken: :baby_chick: Hens-and-Roosters :baby_chick: :chicken:
 
-Let's try here!   
-https://hens-and-roosters.tk/   
 <img src=https://user-images.githubusercontent.com/56245555/88474057-3cabf800-cf5e-11ea-998e-75ec42269503.gif>
 
 
